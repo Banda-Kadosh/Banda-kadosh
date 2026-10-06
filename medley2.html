@@ -4,52 +4,51 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Banda Kadosh | Medley</title>
+<title>Banda Kadosh | Medley 2</title>
 
 <style>
-
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
     background: #050505;
     color: white;
     font-family: Arial, sans-serif;
-    overflow: hidden;
+    min-height: 100vh;
 }
 
-/* ==========================
-   TELA INICIAL
-========================== */
-
-.inicio {
-    height: 100vh;
+.inicio,
+.slide {
+    min-height: 100vh;
     width: 100%;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     text-align: center;
+    padding: 30px;
+    background: radial-gradient(circle, #3d0000, #050505 70%);
+}
 
-    background:
-        radial-gradient(circle at center, #3d0000, #080000 45%, #000 80%);
+.slide {
+    display: none;
+}
+
+.slide.ativo {
+    display: flex;
 }
 
 .conteudo {
+    width: 100%;
     max-width: 1100px;
-    width: 90%;
-    position: relative;
-    z-index: 2;
 }
 
 .logo {
-    font-size: clamp(45px, 8vw, 95px);
+    font-size: clamp(45px, 8vw, 90px);
     font-weight: bold;
-    letter-spacing: 10px;
+    letter-spacing: 8px;
 }
 
 .logo span {
@@ -57,60 +56,290 @@ body {
 }
 
 .medley {
-    margin-top: 25px;
-    color: #ff2020;
-    font-size: 24px;
+    margin-top: 20px;
+    color: #ff3030;
+    font-size: 25px;
     letter-spacing: 5px;
 }
 
 .musicas {
-    margin-top: 15px;
-    color: #ddd;
+    margin-top: 20px;
     font-size: 18px;
     line-height: 1.8;
+    color: #ddd;
 }
 
 .tema {
     margin-top: 25px;
-    color: #999;
-    letter-spacing: 4px;
+    color: #aaa;
+    letter-spacing: 3px;
 }
-
-/* ==========================
-   BOTÃO
-========================== */
 
 .botao {
-    margin-top: 45px;
-
-    padding: 18px 42px;
-
-    border: 2px solid #ff2020;
+    margin-top: 40px;
+    padding: 18px 40px;
+    border: 2px solid #ff3030;
     border-radius: 50px;
-
     background: #850000;
     color: white;
-
     font-size: 17px;
     font-weight: bold;
-
-    letter-spacing: 3px;
-
     cursor: pointer;
-
-    text-decoration: none;
-    display: inline-block;
-
-    box-shadow: 0 0 30px rgba(255,0,0,.35);
-
-    transition: .3s;
 }
 
-.botao:hover {
-    background: #d00000;
-    transform: scale(1.05);
+.titulo {
+    color: #ff3030;
+    font-size: 24px;
+    letter-spacing: 5px;
+    margin-bottom: 35px;
+    text-transform: uppercase;
 }
 
-/* ==========================
-   SLIDES
-========================== */
+.letra {
+    font-size: clamp(25px, 4vw, 55px);
+    line-height: 1.5;
+    font-weight: bold;
+}
+
+.controles {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    gap: 10px;
+    z-index: 10;
+}
+
+.controles.ativo {
+    display: flex;
+}
+
+.controles button {
+    padding: 12px 22px;
+    background: #850000;
+    color: white;
+    border: 1px solid #ff3030;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.numero {
+    position: fixed;
+    top: 20px;
+    right: 25px;
+    color: #aaa;
+    display: none;
+}
+
+.numero.ativo {
+    display: block;
+}
+
+@media(max-width:700px) {
+    .logo {
+        font-size: 42px;
+    }
+
+    .letra {
+        font-size: 25px;
+    }
+
+    .musicas {
+        font-size: 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- TELA INICIAL -->
+
+<div class="inicio" id="inicio">
+
+    <div class="conteudo">
+
+        <div class="logo">
+            BANDA <span>KADOSH</span>
+        </div>
+
+        <div class="medley">
+            MEDLEY 2
+        </div>
+
+        <div class="musicas">
+            DE VOLTA<br>
+            JESUS, MEU PRIMEIRO AMOR<br>
+            VOLTEMOS AO INÍCIO<br>
+            BÁLSAMO DE GILEADE
+        </div>
+
+        <div class="tema">
+            LOUVOR • ADORAÇÃO • PRESENÇA
+        </div>
+
+        <button class="botao" onclick="iniciar()">
+            ▶ INICIAR MEDLEY
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- LETRA 1 -->
+
+<section class="slide">
+
+    <div class="conteudo">
+
+        <div class="titulo">
+            De Volta
+        </div>
+
+        <div class="letra">
+            Vinde, voltemos ao Senhor<br>
+            Pois Ele de volta<br>
+            Nos levou ao deserto<br>
+            Para nos lembrar<br>
+            Das primeiras obras<br>
+            E da essência
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- LETRA 2 -->
+
+<section class="slide">
+
+    <div class="conteudo">
+
+        <div class="titulo">
+            De Volta
+        </div>
+
+        <div class="letra">
+            Muros Ele levantará<br>
+            Em nossos caminhos<br>
+            Com espinhos<br>
+            Ele nos cercará<br>
+            Para ensinar que no final
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- LETRA 3 -->
+
+<section class="slide">
+
+    <div class="conteudo">
+
+        <div class="titulo">
+            De Volta
+        </div>
+
+        <div class="letra">
+            Ele amadurece o nosso amor<br>
+            Ainda que seja pela dor<br>
+            Ele é fiel, pra sempre bom
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- LETRA 4 -->
+
+<section class="slide">
+
+    <div class="conteudo">
+
+        <div class="titulo">
+            De Volta
+        </div>
+
+        <div class="letra">
+            Eu quero me apaixonar outra vez<br>
+            Eu quero me desesperar outra vez<br>
+            Eu quero perder o sono outra vez<br>
+            Queimando de...
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTROLES -->
+
+<div class="controles" id="controles">
+
+    <button onclick="anterior()">◀</button>
+
+    <button onclick="proximo()">▶</button>
+
+</div>
+
+<div class="numero" id="numero">
+    1 / 4
+</div>
+
+
+<script>
+
+const slides = document.querySelectorAll(".slide");
+
+let atual = 0;
+
+function iniciar() {
+
+    document.getElementById("inicio").style.display = "none";
+
+    document.getElementById("controles").classList.add("ativo");
+
+    document.getElementById("numero").classList.add("ativo");
+
+    mostrar(0);
+}
+
+function mostrar(numero) {
+
+    slides.forEach(function(slide) {
+        slide.classList.remove("ativo");
+    });
+
+    atual = numero;
+
+    slides[atual].classList.add("ativo");
+
+    document.getElementById("numero").textContent =
+        (atual + 1) + " / " + slides.length;
+}
+
+function proximo() {
+
+    if (atual < slides.length - 1) {
+        mostrar(atual + 1);
+    }
+}
+
+function anterior() {
+
+    if (atual > 0) {
+        mostrar(atual - 1);
+    }
+}
+
+</script>
+
+</body>
+</html>
