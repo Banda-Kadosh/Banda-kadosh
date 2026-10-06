@@ -159,4 +159,200 @@ body {
 
 <div class="inicio" id="inicio">
 
-    <div class="conte
+    <div class="conteudo">
+
+        <div class="logo">
+            BANDA <span>KADOSH</span>
+        </div>
+
+        <div class="medley">
+            MEDLEY 2
+        </div>
+
+        <div class="musicas">
+            DE VOLTA<br>
+            JESUS, MEU PRIMEIRO AMOR<br>
+            VOLTEMOS AO INÍCIO<br>
+            BÁLSAMO DE GILEADE
+        </div>
+
+        <div class="tema">
+            LOUVOR • ADORAÇÃO • PRESENÇA
+        </div>
+
+        <button class="botao" onclick="iniciar()">
+            ▶ INICIAR MEDLEY
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- LETRA 1 -->
+
+<section class="slide">
+    <div class="conteudo">
+        <div class="titulo">De Volta</div>
+
+        <div class="letra">
+            COLE AQUI A LETRA 1
+        </div>
+    </div>
+</section>
+
+
+<!-- LETRA 2 -->
+
+<section class="slide">
+    <div class="conteudo">
+        <div class="titulo">De Volta</div>
+
+        <div class="letra">
+            COLE AQUI A LETRA 2
+        </div>
+    </div>
+</section>
+
+
+<!-- LETRA 3 -->
+
+<section class="slide">
+    <div class="conteudo">
+        <div class="titulo">De Volta</div>
+
+        <div class="letra">
+            COLE AQUI A LETRA 3
+        </div>
+    </div>
+</section>
+
+
+<!-- LETRA 4 -->
+
+<section class="slide">
+    <div class="conteudo">
+        <div class="titulo">De Volta</div>
+
+        <div class="letra">
+            COLE AQUI A LETRA 4
+        </div>
+    </div>
+</section>
+
+
+<!-- LETRA 5 -->
+
+<section class="slide">
+    <div class="conteudo">
+        <div class="titulo">De Volta</div>
+
+        <div class="letra">
+            COLE AQUI A LETRA 5
+        </div>
+    </div>
+</section>
+
+
+<!-- LETRA 6 -->
+
+<section class="slide">
+    <div class="conteudo">
+        <div class="titulo">De Volta</div>
+
+        <div class="letra">
+            COLE AQUI A LETRA 6
+        </div>
+    </div>
+</section>
+
+
+<!-- LETRA 7 -->
+
+<section class="slide">
+    <div class="conteudo">
+        <div class="titulo">De Volta</div>
+
+        <div class="letra">
+            COLE AQUI A LETRA 7
+        </div>
+    </div>
+</section>
+
+
+<!-- CONTROLES -->
+
+<div class="controles" id="controles">
+
+    <button onclick="anterior()">◀</button>
+
+    <button onclick="proximo()">▶</button>
+
+</div>
+
+<div class="numero" id="numero">
+    1 / 7
+</div>
+
+
+<script>
+
+const slides = document.querySelectorAll(".slide");
+
+let atual = 0;
+
+function iniciar() {
+
+    document.getElementById("inicio").style.display = "none";
+
+    document.getElementById("controles").classList.add("ativo");
+
+    document.getElementById("numero").classList.add("ativo");
+
+    mostrar(0);
+}
+
+function mostrar(numero) {
+
+    slides.forEach(function(slide) {
+        slide.classList.remove("ativo");
+    });
+
+    atual = numero;
+
+    slides[atual].classList.add("ativo");
+
+    document.getElementById("numero").textContent =
+        (atual + 1) + " / " + slides.length;
+}
+
+function proximo() {
+
+    if (atual < slides.length - 1) {
+        mostrar(atual + 1);
+    }
+}
+
+function anterior() {
+
+    if (atual > 0) {
+        mostrar(atual - 1);
+    }
+}
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "ArrowRight") {
+        proximo();
+    }
+
+    if (event.key === "ArrowLeft") {
+        anterior();
+    }
+
+});
+
+</script>
+
+</body>
+</html>
