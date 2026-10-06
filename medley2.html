@@ -3,152 +3,191 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Banda Kadosh | Medley De Volta</title>
-
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#050505;color:white;font-family:Arial,sans-serif;overflow:hidden}
+.inicio,.slide{height:100vh;width:100%;display:flex;justify-content:center;align-items:center;text-align:center}
+.inicio{background:radial-gradient(circle at center,#3d0000,#080000 45%,#000 80%)}
+.conteudo{width:90%;max-width:1100px}
+.logo{font-size:clamp(42px,8vw,90px);font-weight:bold;letter-spacing:8px}
+.logo span{color:#e00000}
+.medley{margin-top:20px;color:#ff3030;font-size:25px;letter-spacing:5px}
+.musicas{margin-top:20px;color:#ddd;font-size:18px;line-height:1.8}
+.tema{margin-top:22px;color:#aaa;letter-spacing:3px}
+.botao{margin-top:35px;padding:18px 40px;border:2px solid #ff3030;border-radius:50px;background:#850000;color:white;font-size:17px;font-weight:bold;letter-spacing:2px;cursor:pointer;box-shadow:0 0 30px rgba(255,0,0,.35)}
+.slide{display:none;padding:35px;background:radial-gradient(circle at center,#260000,#050505 70%)}
+.slide.ativo{display:flex}
+.titulo{color:#ff3030;font-size:21px;letter-spacing:5px;margin-bottom:30px;text-transform:uppercase}
+.letra{font-size:clamp(24px,4vw,52px);line-height:1.4;font-weight:600}
+.controles{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);display:none;gap:10px;z-index:20}
+.controles.ativo{display:flex}
+.controles button{background:#850000;color:white;border:1px solid #ff3030;padding:11px 20px;border-radius:8px;cursor:pointer;font-size:20px}
+.numero{position:fixed;top:18px;right:22px;color:#aaa;display:none;z-index:20}
+.numero.ativo{display:block}
+@media(max-width:700px){
+.logo{font-size:38px;letter-spacing:4px}
+.musicas{font-size:15px}
+.letra{font-size:23px;line-height:1.35}
+.titulo{font-size:15px;margin-bottom:22px}
+.controles button{padding:9px 15px}
 }
+</style>
+</head>
+<body>
 
-body {
-    background: #050505;
-    color: white;
-    font-family: Arial, sans-serif;
-    overflow: hidden;
+<div class="inicio" id="inicio">
+<div class="conteudo">
+<div class="logo">BANDA <span>KADOSH</span></div>
+<div class="medley">MEDLEY</div>
+<div class="musicas">DE VOLTA<br>JESUS, MEU PRIMEIRO AMOR<br>VOLTEMOS AO INÍCIO<br>BÁLSAMO DE GILEADE</div>
+<div class="tema">LOUVOR • ADORAÇÃO • PRESENÇA</div>
+<button class="botao" onclick="iniciarMedley()">▶ INICIAR MEDLEY</button>
+</div>
+</div>
+
+<section class="slide"><div class="conteudo"><div class="titulo">De Volta</div><div class="letra">
+Vinde, voltemos ao Senhor<br>Pois Ele de volta<br>Nos levou ao deserto<br>Para nos lembrar<br>Das primeiras obras<br>E da essência
+</div></div></section>
+
+<section class="slide"><div class="conteudo"><div class="titulo">De Volta</div><div class="letra">
+Muros Ele levantará<br>Em nossos caminhos<br>Com espinhos<br>Ele nos cercará<br>Para ensinar que no final
+</div></div></section>
+
+<section class="slide"><div class="conteudo"><div class="titulo">De Volta</div><div class="letra">
+Ele amadurece o nosso amor<br>Ainda que seja pela dor<br>Ele é fiel, pra sempre bom
+</div></div></section>
+
+<section class="slide"><div class="conteudo"><div class="titulo">De Volta</div><div class="letra">
+Ele amadurece o nosso amor<br>Ainda que seja pela dor<br>Ele é fiel, pra sempre bom
+</div></div></section>
+
+<section class="slide"><div class="conteudo"><div class="titulo">De Volta</div><div class="letra">
+Muros Ele levantará<br>Em nossos caminhos<br>Com espinhos<br>Ele nos cercará<br>Para ensinar que no final
+</div></div></section>
+
+<section class="slide"><div class="conteudo"><div class="titulo">De Volta</div><div class="letra">
+Ele amadurece o nosso amor<br>Ainda que seja pela dor<br>Ele é fiel, pra sempre bom<br>
+Ele amadurece o nosso amor<br>Ainda que seja pela dor<br>Ele é fiel, pra sempre bom
+</div></div></section>
+
+<section class="slide"><div class="conteudo"><div class="titulo">De Volta</div><div class="letra">
+Ele amadurece o nosso amor<br>Ainda que seja pela dor<br>Ele é fiel, pra sempre bom<br>
+Ele amadurece o nosso amor<br>Ainda que seja pela dor<br>Ele é fiel, pra sempre bom
+</div></div></section>
+
+<section class="slide"><div class="conteudo"><div class="titulo">De Volta</div><div class="letra">
+Eu quero me apaixonar outra vez<br>
+Eu quero me desesperar outra vez<br>
+Eu quero perder o sono outra vez<br>
+Queimando que amor por Ti
+</div><div class="tema">6x</div></div></section>
+
+<section class="slide"><div class="conteudo"><div class="titulo">De Volta</div><div class="letra">
+Leva-nos de volta ao primeiro amor<br>
+Leva-nos de volta ao primeiro amor<br>
+Leva-nos de volta ao primeiro amor
+</div></div></section>
+
+<section class="slide"><div class="conteudo"><div class="titulo">De Volta</div><div class="letra">
+Leva-nos de volta ao primeiro amor<br>
+Leva-nos de volta ao primeiro amor<br>
+Leva-nos de volta ao primeiro amor
+</div></div></section>
+
+<section class="slide"><div class="conteudo"><div class="titulo">De Volta</div><div class="letra">
+Nós iremos contigo, amado amigo<br>
+Retornaremos ao lugar que pertencemos<br>
+Nós iremos contigo, amado amigo<br>
+Retornaremos ao lugar ao qual pertencemos
+</div><div class="tema">4x</div></div></section>
+
+<section class="slide"><div class="conteudo"><div class="titulo">De Volta</div><div class="letra">
+Leva-nos de volta ao primeiro amor<br>
+Leva-nos de volta ao primeiro amor<br>
+Leva-nos de volta ao primeiro amor<br><br>
+Leva-nos de volta ao primeiro amor<br>
+Leva-nos de volta ao primeiro amor<br>
+Leva-nos de volta ao primeiro amor
+</div></div></section>
+
+<section class="slide"><div class="conteudo"><div class="titulo">De Volta</div><div class="letra">
+Vinde, voltemos ao Senhor<br>
+Pois Ele nos despedaçou e nos sarará<br>
+Fez a ferida e a ligará<br>
+Nos revigorará e viveremos diante dEle
+</div></div></section>
+
+<section class="slide"><div class="conteudo"><div class="titulo">De Volta</div><div class="letra">
+Vinde, voltemos ao Senhor<br>
+Pois Ele nos despedaçou e nos sarará<br>
+Fez a ferida e a ligará<br>
+Nos revigorará e viveremos diante dEle
+</div></div></section>
+
+<section class="slide"><div class="conteudo"><div class="titulo">De Volta</div><div class="letra">
+Vinde, voltemos ao Senhor<br>
+Pois Ele nos despedaçou e nos sarará<br>
+Fez a ferida e a ligará<br>
+Nos revigorará e viveremos diante dEle
+</div></div></section>
+
+<section class="slide"><div class="conteudo"><div class="titulo">Bálsamo de Gileade</div><div class="letra">
+Há um bálsamo em Gileade<br>
+Há unção em Gileade<br>
+Vem sobre mim para curar<br>
+Vem sobre a filha de Sião
+</div></div></section>
+
+<section class="slide"><div class="conteudo"><div class="titulo">Bálsamo de Gileade</div><div class="letra">
+Há um médico em Gileade<br>
+Há remédio em Gileade<br>
+Vem sobre mim para curar<br>
+Restaura a filha de Sião
+</div></div></section>
+
+<section class="slide"><div class="conteudo"><div class="titulo">Bálsamo de Gileade</div><div class="letra">
+Há um bálsamo em Gileade<br>
+Há unção em Gileade<br>
+Vem sobre mim para curar<br>
+Vem sobre a filha de Sião
+</div></div></section>
+
+<section class="slide"><div class="conteudo"><div class="titulo">Bálsamo de Gileade</div><div class="letra">
+Há um médico em Gileade<br>
+Há remédio em Gileade<br>
+Vem sobre mim para curar<br>
+Restaura a filha de Sião
+</div></div></section>
+
+<div class="controles" id="controles">
+<button onclick="anterior()">◀</button>
+<button onclick="proximo()">▶</button>
+</div>
+<div class="numero" id="numero">1 / 19</div>
+
+<script>
+const slides=document.querySelectorAll(".slide");
+let atual=0;
+
+function iniciarMedley(){
+ document.getElementById("inicio").style.display="none";
+ document.getElementById("controles").classList.add("ativo");
+ document.getElementById("numero").classList.add("ativo");
+ mostrarSlide(0);
 }
-
-/* TELA INICIAL */
-
-.inicio {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background:
-        radial-gradient(circle at center, #3d0000, #080000 45%, #000 80%);
+function mostrarSlide(n){
+ slides.forEach(s=>s.classList.remove("ativo"));
+ atual=Math.max(0,Math.min(n,slides.length-1));
+ slides[atual].classList.add("ativo");
+ document.getElementById("numero").textContent=(atual+1)+" / "+slides.length;
 }
-
-.conteudo {
-    width: 90%;
-    max-width: 1100px;
-}
-
-.logo {
-    font-size: clamp(45px, 8vw, 90px);
-    font-weight: bold;
-    letter-spacing: 8px;
-}
-
-.logo span {
-    color: #e00000;
-}
-
-.medley {
-    margin-top: 20px;
-    color: #ff3030;
-    font-size: 25px;
-    letter-spacing: 5px;
-}
-
-.musicas {
-    margin-top: 20px;
-    color: #ddd;
-    font-size: 18px;
-    line-height: 1.8;
-}
-
-.tema {
-    margin-top: 25px;
-    color: #aaa;
-    letter-spacing: 3px;
-}
-
-/* BOTÃO */
-
-.botao {
-    margin-top: 40px;
-    padding: 18px 40px;
-    border: 2px solid #ff3030;
-    border-radius: 50px;
-    background: #850000;
-    color: white;
-    font-size: 17px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    cursor: pointer;
-    box-shadow: 0 0 30px rgba(255,0,0,.35);
-}
-
-.botao:hover {
-    background: #d00000;
-}
-
-/* SLIDES */
-
-.slide {
-    height: 100vh;
-    width: 100%;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 40px;
-    background:
-        radial-gradient(circle at center, #260000, #050505 70%);
-}
-
-.slide.ativo {
-    display: flex;
-}
-
-.titulo {
-    color: #ff3030;
-    font-size: 22px;
-    letter-spacing: 5px;
-    margin-bottom: 35px;
-    text-transform: uppercase;
-}
-
-.letra {
-    font-size: clamp(25px, 4vw, 52px);
-    line-height: 1.45;
-    font-weight: 600;
-}
-
-/* CONTROLES */
-
-.controles {
-    position: fixed;
-    bottom: 25px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: none;
-    gap: 10px;
-    z-index: 20;
-}
-
-.controles.ativo {
-    display: flex;
-}
-
-.controles button {
-    background: #850000;
-    color: white;
-    border: 1px solid #ff3030;
-    padding: 12px 22px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 20px;
-}
-
-.controles button:hover {
-    background: #d00000;
-}
-
-.numero {
-    position: fixed
+function proximo(){if(atual<slides.length-1)mostrarSlide(atual+1)}
+function anterior(){if(atual>0)mostrarSlide(atual-1)}
+document.addEventListener("keydown",e=>{
+ if(e.key==="ArrowRight")proximo();
+ if(e.key==="ArrowLeft")anterior();
+});
+</script>
+</body>
+</html>
