@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Banda Kadosh | Medley 2</title>
+<title>Banda Kadosh | Medley De Volta</title>
 
 <style>
 * {
@@ -17,31 +17,24 @@ body {
     background: #050505;
     color: white;
     font-family: Arial, sans-serif;
-    min-height: 100vh;
+    overflow: hidden;
 }
 
-.inicio,
-.slide {
-    min-height: 100vh;
+/* TELA INICIAL */
+
+.inicio {
+    height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 30px;
-    background: radial-gradient(circle, #3d0000, #050505 70%);
-}
-
-.slide {
-    display: none;
-}
-
-.slide.ativo {
-    display: flex;
+    background:
+        radial-gradient(circle at center, #3d0000, #080000 45%, #000 80%);
 }
 
 .conteudo {
-    width: 100%;
+    width: 90%;
     max-width: 1100px;
 }
 
@@ -64,9 +57,9 @@ body {
 
 .musicas {
     margin-top: 20px;
+    color: #ddd;
     font-size: 18px;
     line-height: 1.8;
-    color: #ddd;
 }
 
 .tema {
@@ -74,6 +67,8 @@ body {
     color: #aaa;
     letter-spacing: 3px;
 }
+
+/* BOTÃO */
 
 .botao {
     margin-top: 40px;
@@ -84,22 +79,48 @@ body {
     color: white;
     font-size: 17px;
     font-weight: bold;
+    letter-spacing: 2px;
     cursor: pointer;
+    box-shadow: 0 0 30px rgba(255,0,0,.35);
+}
+
+.botao:hover {
+    background: #d00000;
+}
+
+/* SLIDES */
+
+.slide {
+    height: 100vh;
+    width: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+    background:
+        radial-gradient(circle at center, #260000, #050505 70%);
+}
+
+.slide.ativo {
+    display: flex;
 }
 
 .titulo {
     color: #ff3030;
-    font-size: 24px;
+    font-size: 22px;
     letter-spacing: 5px;
     margin-bottom: 35px;
     text-transform: uppercase;
 }
 
 .letra {
-    font-size: clamp(25px, 4vw, 55px);
-    line-height: 1.5;
-    font-weight: bold;
+    font-size: clamp(25px, 4vw, 52px);
+    line-height: 1.45;
+    font-weight: 600;
 }
+
+/* CONTROLES */
 
 .controles {
     position: fixed;
@@ -108,7 +129,7 @@ body {
     transform: translateX(-50%);
     display: none;
     gap: 10px;
-    z-index: 10;
+    z-index: 20;
 }
 
 .controles.ativo {
@@ -116,243 +137,18 @@ body {
 }
 
 .controles button {
-    padding: 12px 22px;
     background: #850000;
     color: white;
     border: 1px solid #ff3030;
+    padding: 12px 22px;
     border-radius: 8px;
-    font-size: 18px;
     cursor: pointer;
+    font-size: 20px;
+}
+
+.controles button:hover {
+    background: #d00000;
 }
 
 .numero {
-    position: fixed;
-    top: 20px;
-    right: 25px;
-    color: #aaa;
-    display: none;
-}
-
-.numero.ativo {
-    display: block;
-}
-
-@media(max-width:700px) {
-    .logo {
-        font-size: 42px;
-    }
-
-    .letra {
-        font-size: 25px;
-    }
-
-    .musicas {
-        font-size: 15px;
-    }
-}
-</style>
-</head>
-
-<body>
-
-<!-- TELA INICIAL -->
-
-<div class="inicio" id="inicio">
-
-    <div class="conteudo">
-
-        <div class="logo">
-            BANDA <span>KADOSH</span>
-        </div>
-
-        <div class="medley">
-            MEDLEY 2
-        </div>
-
-        <div class="musicas">
-            DE VOLTA<br>
-            JESUS, MEU PRIMEIRO AMOR<br>
-            VOLTEMOS AO INÍCIO<br>
-            BÁLSAMO DE GILEADE
-        </div>
-
-        <div class="tema">
-            LOUVOR • ADORAÇÃO • PRESENÇA
-        </div>
-
-        <button class="botao" onclick="iniciar()">
-            ▶ INICIAR MEDLEY
-        </button>
-
-    </div>
-
-</div>
-
-
-<!-- LETRA 1 -->
-
-<section class="slide">
-    <div class="conteudo">
-        <div class="titulo">De Volta</div>
-
-        <div class="letra">
-            COLE AQUI A LETRA 1
-        </div>
-    </div>
-</section>
-
-
-<!-- LETRA 2 -->
-
-<section class="slide">
-    <div class="conteudo">
-        <div class="titulo">De Volta</div>
-
-        <div class="letra">
-            COLE AQUI A LETRA 2
-        </div>
-    </div>
-</section>
-
-
-<!-- LETRA 3 -->
-
-<section class="slide">
-    <div class="conteudo">
-        <div class="titulo">De Volta</div>
-
-        <div class="letra">
-            COLE AQUI A LETRA 3
-        </div>
-    </div>
-</section>
-
-
-<!-- LETRA 4 -->
-
-<section class="slide">
-    <div class="conteudo">
-        <div class="titulo">De Volta</div>
-
-        <div class="letra">
-            COLE AQUI A LETRA 4
-        </div>
-    </div>
-</section>
-
-
-<!-- LETRA 5 -->
-
-<section class="slide">
-    <div class="conteudo">
-        <div class="titulo">De Volta</div>
-
-        <div class="letra">
-            COLE AQUI A LETRA 5
-        </div>
-    </div>
-</section>
-
-
-<!-- LETRA 6 -->
-
-<section class="slide">
-    <div class="conteudo">
-        <div class="titulo">De Volta</div>
-
-        <div class="letra">
-            COLE AQUI A LETRA 6
-        </div>
-    </div>
-</section>
-
-
-<!-- LETRA 7 -->
-
-<section class="slide">
-    <div class="conteudo">
-        <div class="titulo">De Volta</div>
-
-        <div class="letra">
-            COLE AQUI A LETRA 7
-        </div>
-    </div>
-</section>
-
-
-<!-- CONTROLES -->
-
-<div class="controles" id="controles">
-
-    <button onclick="anterior()">◀</button>
-
-    <button onclick="proximo()">▶</button>
-
-</div>
-
-<div class="numero" id="numero">
-    1 / 7
-</div>
-
-
-<script>
-
-const slides = document.querySelectorAll(".slide");
-
-let atual = 0;
-
-function iniciar() {
-
-    document.getElementById("inicio").style.display = "none";
-
-    document.getElementById("controles").classList.add("ativo");
-
-    document.getElementById("numero").classList.add("ativo");
-
-    mostrar(0);
-}
-
-function mostrar(numero) {
-
-    slides.forEach(function(slide) {
-        slide.classList.remove("ativo");
-    });
-
-    atual = numero;
-
-    slides[atual].classList.add("ativo");
-
-    document.getElementById("numero").textContent =
-        (atual + 1) + " / " + slides.length;
-}
-
-function proximo() {
-
-    if (atual < slides.length - 1) {
-        mostrar(atual + 1);
-    }
-}
-
-function anterior() {
-
-    if (atual > 0) {
-        mostrar(atual - 1);
-    }
-}
-
-document.addEventListener("keydown", function(event) {
-
-    if (event.key === "ArrowRight") {
-        proximo();
-    }
-
-    if (event.key === "ArrowLeft") {
-        anterior();
-    }
-
-});
-
-</script>
-
-</body>
-</html>
+    position: fixed
