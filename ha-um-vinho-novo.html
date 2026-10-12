@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050000">
+<title>Banda Kadosh | Há Um Vinho Novo</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#e0000b;--white:#fff}
+html,body{width:100%;height:100%;background:#050000;color:var(--white);font-family:Arial,sans-serif;overflow:hidden}
+button{font:inherit;cursor:pointer}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 55%,rgba(170,0,0,.24),transparent 48%)}
+.linha{position:fixed;z-index:10;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,transparent,#e0000b,#ff5555,#e0000b,transparent);box-shadow:0 0 18px #e0000066}
+.tela{position:relative;z-index:1;width:100%;height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 16px 100px;text-align:center}
+.inicio{width:100%;max-width:520px}
+.titulo{font-size:clamp(36px,9vw,66px);font-weight:400;letter-spacing:7px;line-height:1.3}
+.kadosh{color:var(--red);font-weight:700;text-shadow:0 0 25px #ff00004d}
+.rotulo{color:#ff343b;letter-spacing:6px;font-size:14px;margin-top:22px}
+.musica{font-size:13px;letter-spacing:3px;line-height:1.8;margin-top:25px;color:#ddd}
+.referencia{margin-top:18px;color:#bbb;font-size:13px;letter-spacing:4px}
+.acoes{margin-top:38px;display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
+.botao{color:white;background:#d90009;border:1px solid #ff3038;border-radius:35px;padding:15px 22px;min-height:48px;font-size:12px;font-weight:bold;letter-spacing:2px;box-shadow:0 0 18px #ff000059}
+.botao:active{transform:scale(.97);background:#a00000}
+.escondido{display:none!important}
+.letra-tela{width:100%;max-width:900px}
+.cabecalho{position:absolute;top:28px;left:18px;right:18px;display:flex;align-items:center;justify-content:space-between;font-size:12px;letter-spacing:3px;color:#ddd}
+.cabecalho span{color:#ff3038}
+.numero{color:#aaa;letter-spacing:1px}
+.progresso{position:absolute;top:58px;left:18px;right:18px;height:3px;background:#292020}
+.progresso div{height:100%;width:0;background:var(--red);box-shadow:0 0 12px red;transition:width .2s}
+.etiqueta{color:#ff3038;font-size:11px;letter-spacing:6px;margin-bottom:25px}
+.texto-letra{font-size:clamp(23px,5.5vw,42px);font-weight:bold;line-height:1.7;white-space:pre-line;overflow-wrap:anywhere;max-height:65vh;overflow-y:auto;padding:15px 4px}
+.controles{position:fixed;z-index:5;bottom:22px;left:0;right:0;display:flex;justify-content:center;gap:10px}
+.controles button{width:52px;height:48px;border:1px solid #ff3038;border-radius:9px;color:white;background:#a90008;font-size:19px;box-shadow:0 0 12px #e0000030}
+.controles button:active{background:#e0000b}
+@media(max-width:380px){.titulo{letter-spacing:4px}.botao{padding:13px 15px;letter-spacing:1px}.texto-letra{font-size:22px}}
+</style>
+</head>
+<body>
+<div class="linha"></div>
+
+<section class="tela" id="inicio">
+  <div class="inicio">
+    <h1 class="titulo">BANDA<br><span class="kadosh">KADOSH</span></h1>
+    <div class="rotulo">HÁ UM VINHO NOVO</div>
+    <div class="musica">MINISTÉRIO ZOE</div>
+    <div class="referencia">LOUVOR • ADORAÇÃO • PRESENÇA</div>
+    <div class="acoes"><button class="botao" onclick="iniciar()">▶ INICIAR MÚSICA</button></div>
+  </div>
+</section>
+
+<section class="tela escondido" id="letras">
+  <div class="letra-tela">
+    <header class="cabecalho"><div>BANDA <span>KADOSH</span></div><div class="numero" id="numero">01 / 18</div></header>
+    <div class="progresso"><div id="barra"></div></div>
+    <div class="etiqueta" id="etiqueta">HÁ UM VINHO NOVO</div>
+    <div class="texto-letra" id="texto"></div>
+  </div>
+</section>
+
+<nav class="controles escondido" id="controles">
+  <button onclick="voltar()" aria-label="Voltar">←</button>
+  <button onclick="avancar()" aria-label="Avançar">→</button>
+  <button onclick="telaCheia()" aria-label="Tela cheia">⛶</button>
+</nav>
+
+<script>
+const partes = [
+{titulo:"HÁ UM VINHO NOVO",texto:`Já cantei uma canção de amor
+Já cantei uma canção da graça
+E por quê não cantar na dor,
+Quando o meu coração está quebrado?`},
+{titulo:"VINHO NOVO",texto:`Há um vinho novo pra descer,
+Sobre odres que já foram rasgados
+E agora são novos outra vez`},
+{titulo:"ESPERANÇA",texto:`Há uma esperança pra cantar,
+Aquele que fez a ferida ligará`},
+{titulo:"VINHO NOVO",texto:`Há um vinho novo pra descer,
+Sobre odres que já foram rasgados
+E agora são novos outra vez`},
+{titulo:"ESPERANÇA",texto:`Há uma esperança pra cantar,
+Aquele que fez a ferida ligará`},
+{titulo:"CANÇÃO NA DOR",texto:`Eu cantarei uma canção na minha dor
+O choro pode durar uma noite,
+A alegria vem com a manhã`},
+{titulo:"CANÇÃO NA DOR",texto:`Eu cantarei uma canção na minha dor
+O choro pode durar uma noite, só
+Mais uma noite`},
+{titulo:"ALEGRIA",texto:`E a virgem se alegrará na dança, os
+Jovens e os velhos também
+Eu me alegrarei e toda terra também!`},
+{titulo:"DANÇAREI",texto:`Eu dançarei, sobre toda dor
+Eu cantarei uma canção na minha dor`},
+{titulo:"A ALEGRIA VEM",texto:`O choro pode durar uma noite,
+A alegria vem com a manhã`},
+{titulo:"CANÇÃO NA DOR",texto:`Eu cantarei uma canção na minha dor
+O choro pode durar uma noite, só
+Mais uma noite`},
+{titulo:"VINHO NOVO",texto:`Pois há um vinho novo pra descer,
+Sobre odres que já foram rasgados,
+E agora são novos outra vez`},
+{titulo:"ESPERANÇA",texto:`Há uma esperança pra cantar,
+Aquele que fez a ferida ligará`}
+];
+
+let atual = 0;
+
+function iniciar(){
+  document.getElementById("inicio").classList.add("escondido");
+  document.getElementById("letras").classList.remove("escondido");
+  document.getElementById("controles").classList.remove("escondido");
+  mostrar();
+}
+
+function mostrar(){
+  const parte = partes[atual];
+  document.getElementById("etiqueta").textContent = parte.titulo;
+  document.getElementById("texto").textContent = parte.texto;
+  document.getElementById("numero").textContent =
+    String(atual+1).padStart(2,"0")+" / "+String(partes.length).padStart(2,"0");
+  document.getElementById("barra").style.width =
+    ((atual+1)/partes.length*100)+"%";
+  document.getElementById("texto").scrollTop = 0;
+}
+
+function avancar(){
+  if(atual < partes.length-1){ atual++; mostrar(); }
+}
+
+function voltar(){
+  if(atual > 0){ atual--; mostrar(); }
+}
+
+function telaCheia(){
+  if(!document.fullscreenElement){
+    document.documentElement.requestFullscreen?.();
+  } else {
+    document.exitFullscreen?.();
+  }
+}
+
+document.addEventListener("keydown", e=>{
+  if(e.key==="ArrowRight" || e.key===" "){ e.preventDefault(); avancar(); }
+  if(e.key==="ArrowLeft"){ voltar(); }
+});
+</script>
+</body>
+</html>
