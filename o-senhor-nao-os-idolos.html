@@ -3,94 +3,100 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050000">
 <title>Banda Kadosh | O Senhor, Não os Ídolos</title>
 <style>
-:root{--red:#ff251b;--dark:#050505;--white:#f7f4f6}
-*{box-sizing:border-box}
-html,body{margin:0;min-height:100%;background:#050505;color:var(--white);font-family:Arial,Helvetica,sans-serif}
-body{min-height:100vh;background:radial-gradient(ellipse at 50% 45%,#260811 0%,#10050a 48%,#030303 100%)}
-[hidden]{display:none!important}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#e0000b;--white:#fff}
+html,body{width:100%;height:100%;background:#050000;color:var(--white);font-family:Arial,sans-serif;overflow:hidden}
 button{font:inherit;cursor:pointer}
-.cover{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:28px 22px}
-.cover-brand{font-size:clamp(2.5rem,10vw,4.4rem);font-weight:900;letter-spacing:8px;line-height:1.15}
-.cover-brand span{display:block;color:#ff251b;text-shadow:0 0 18px #ff251b55}
-.cover-song{margin-top:30px;color:#ff4038;font-size:clamp(1rem,4vw,1.4rem);font-weight:800;letter-spacing:5px;text-transform:uppercase}
-.cover-artist{margin-top:24px;font-size:1.2rem;font-weight:800;letter-spacing:2px}
-.cover-sub{margin-top:24px;font-size:.95rem;font-weight:800;letter-spacing:4px}
-.startbtn{background:#ff2b16;color:#fff;border:1px solid #ff2b16;border-radius:999px;padding:17px 30px;font-weight:900;letter-spacing:1px;box-shadow:0 0 24px #ff2b1666}
-.cover .startbtn{margin-top:58px}
-#lyricsPage{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;padding:0 0 22px}
-.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:20px clamp(16px,5vw,34px) 14px}
-.brand{font-weight:900;letter-spacing:3px;text-transform:uppercase;font-size:clamp(.85rem,3.5vw,1rem)}.brand span{color:var(--red);text-shadow:0 0 15px #e00000}
-.counter{font-size:clamp(.9rem,3.6vw,1.05rem);font-weight:900;letter-spacing:1px;white-space:nowrap}
-.progress{height:4px;background:#371421;margin:0 clamp(16px,5vw,34px);border-radius:99px;overflow:hidden}
-.progress span{display:block;height:100%;width:0;background:var(--red);box-shadow:0 0 10px var(--red);transition:width .2s}
-.slidearea{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px clamp(22px,6vw,48px) 100px;min-height:0}
-.kicker{color:#ff3b35;letter-spacing:5px;font-size:clamp(.8rem,3.5vw,1rem);font-weight:900;text-transform:uppercase;margin-bottom:42px}
-.lyrics{font-size:clamp(1.25rem,4.8vw,2.15rem);font-weight:800;line-height:1.75;white-space:pre-line;text-shadow:0 0 14px #ffffff12;max-width:850px}
-.controls{position:fixed;bottom:24px;left:0;right:0;display:flex;justify-content:center;align-items:center;gap:10px;padding:0 12px}
-.navbtn{width:64px;height:58px;border:0;border-radius:12px;background:#e90000;color:white;font-size:1.4rem;box-shadow:0 0 15px #e0000055}
-.navbtn:disabled{opacity:.45}
-.hint{display:none}
-@media(max-width:480px){.topbar{padding-top:22px}.slidearea{padding-bottom:105px}.kicker{margin-bottom:36px}.lyrics{line-height:1.8}.navbtn{width:60px;height:56px}}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 55%,rgba(170,0,0,.24),transparent 48%)}
+.linha{position:fixed;z-index:10;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,transparent,#e0000b,#ff5555,#e0000b,transparent);box-shadow:0 0 18px #e0000066}
+.tela{position:relative;z-index:1;width:100%;height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 16px 100px;text-align:center}
+.inicio{width:100%;max-width:520px}
+.titulo{font-size:clamp(36px,9vw,66px);font-weight:400;letter-spacing:7px;line-height:1.3}
+.kadosh{color:var(--red);font-weight:700;text-shadow:0 0 25px #ff00004d}
+.rotulo{color:#ff343b;letter-spacing:6px;font-size:14px;margin-top:22px}
+.musica{font-size:13px;letter-spacing:3px;line-height:1.8;margin-top:25px;color:#ddd}
+.referencia{margin-top:18px;color:#bbb;font-size:13px;letter-spacing:4px}
+.acoes{margin-top:38px;display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
+.botao{color:white;background:#d90009;border:1px solid #ff3038;border-radius:35px;padding:15px 22px;min-height:48px;font-size:12px;font-weight:bold;letter-spacing:2px;box-shadow:0 0 18px #ff000059}
+.botao:active{transform:scale(.97);background:#a00000}
+.escondido{display:none!important}
+.letra-tela{width:100%;max-width:900px}
+.cabecalho{position:absolute;top:28px;left:18px;right:18px;display:flex;align-items:center;justify-content:space-between;font-size:12px;letter-spacing:3px;color:#ddd}
+.cabecalho span{color:#ff3038}
+.numero{color:#aaa;letter-spacing:1px}
+.progresso{position:absolute;top:58px;left:18px;right:18px;height:3px;background:#292020}
+.progresso div{height:100%;width:0;background:var(--red);box-shadow:0 0 12px red;transition:width .2s}
+.etiqueta{color:#ff3038;font-size:11px;letter-spacing:6px;margin-bottom:25px}
+.texto-letra{font-size:clamp(23px,5.5vw,42px);font-weight:bold;line-height:1.7;white-space:pre-line;overflow-wrap:anywhere;max-height:65vh;overflow-y:auto;padding:15px 4px}
+.controles{position:fixed;z-index:5;bottom:22px;left:0;right:0;display:flex;justify-content:center;gap:10px}
+.controles button{width:52px;height:48px;border:1px solid #ff3038;border-radius:9px;color:white;background:#a90008;font-size:19px;box-shadow:0 0 12px #e0000030}
+.controles button:active{background:#e0000b}
+@media(max-width:380px){.titulo{letter-spacing:4px}.botao{padding:13px 15px;letter-spacing:1px}.texto-letra{font-size:22px}}
 </style>
 </head>
 <body>
-<section class="cover" id="coverPage">
-  <div class="cover-brand">BANDA<span>KADOSH</span></div>
-  <div class="cover-song">O SENHOR, NÃO OS ÍDOLOS</div>
-  <div class="cover-artist">THAMIRES GARCIA</div>
-  <div class="cover-sub">MINISTRAÇÃO • LOUVOR E ADORAÇÃO</div>
-  <button class="startbtn" id="startBtn" type="button">▶ INICIAR MÚSICA</button>
+<div class="linha"></div>
+
+<section class="tela" id="inicio">
+  <div class="inicio">
+    <h1 class="titulo">BANDA<br><span class="kadosh">KADOSH</span></h1>
+    <div class="rotulo">O SENHOR, NÃO OS ÍDOLOS</div>
+    <div class="musica">THAMIRES GARCIA</div>
+    <div class="referencia">MINISTRAÇÃO • LOUVOR E ADORAÇÃO</div>
+    <div class="acoes"><button class="botao" onclick="iniciar()">▶ INICIAR MÚSICA</button></div>
+  </div>
 </section>
-<div id="lyricsPage" hidden>
-<header class="topbar">
-  <div class="brand">Banda <span>Kadosh</span></div>
-  <div class="counter" id="counter">01 / 20</div>
-</header>
-<div class="progress"><span id="progressBar"></span></div>
-<main class="slidearea" aria-live="polite">
-  <div class="kicker">O Senhor, Não os Ídolos</div>
-  <div class="lyrics" id="lyrics"></div>
-</main>
-<div class="controls">
-  <button class="navbtn" id="prevBtn" type="button" aria-label="Slide anterior" disabled>←</button>
-  <button class="navbtn" id="nextBtn" type="button" aria-label="Próximo slide" disabled>→</button>
-  <button class="navbtn" id="fullscreenBtn" type="button" aria-label="Tela cheia">⛶</button>
-</div>
-</div>
+
+<section class="tela escondido" id="letras">
+  <div class="letra-tela">
+    <header class="cabecalho"><div>BANDA <span>KADOSH</span></div><div class="numero" id="numero">01 / 18</div></header>
+    <div class="progresso"><div id="barra"></div></div>
+    <div class="etiqueta" id="etiqueta">EU ME LEMBRO</div>
+    <div class="texto-letra" id="texto"></div>
+  </div>
+</section>
+
+<nav class="controles escondido" id="controles">
+  <button onclick="voltar()" aria-label="Voltar">←</button>
+  <button onclick="avancar()" aria-label="Avançar">→</button>
+  <button onclick="telaCheia()" aria-label="Tela cheia">⛶</button>
+</nav>
+
 <script>
-const slides = [
-`Pecamos, Senhor
+const partes = [
+{titulo:"O SENHOR, NÃO OS ÍDOLOS",texto:`Pecamos, Senhor
 O nosso coração está tão longe
 E estes nossos ídolos nos fizeram cegos como eles são
 Faz de novo o povo saber
-Que além de Ti não há mais nenhum Deus`,
-`Quem mais poderia dizer
+Que além de Ti não há mais nenhum Deus`},
+{titulo:"O SENHOR, NÃO OS ÍDOLOS",texto:`Quem mais poderia dizer
 Aquilo que vai acontecer no futuro?
 Quem mais poderia fazer
 Aquilo que se fez desde os tempos antigos?
 O Senhor, e não os ídolos
-O Senhor, e não os ídolos`,
-`Quem mais poderia dizer
+O Senhor, e não os ídolos`},
+{titulo:"O SENHOR, NÃO OS ÍDOLOS",texto:`Quem mais poderia dizer
 Aquilo que vai acontecer no futuro?
 Quem mais poderia fazer
 Aquilo que se fez desde os tempos antigos?
 Só o Senhor, e não os ídolos
-O Senhor, e não os ídolos`,
-`É como está escrito
+O Senhor, e não os ídolos`},
+{titulo:"O SENHOR, NÃO OS ÍDOLOS",texto:`É como está escrito
 Assim diz o Senhor
 Eu me lembro de você, meu povo
 Da sua afeição quando você era jovem
 Do seu amor quando noiva
 E de como você me seguia no deserto
-Numa terra em que não se semeia`,
-`Escutem a palavra do Senhor
+Numa terra em que não se semeia`},
+{titulo:"O SENHOR, NÃO OS ÍDOLOS",texto:`Escutem a palavra do Senhor
 Que injustiça seus pais acharam em mim
 Para que se afastassem assim
 Seguindo ídolos sem valor e tornando-se como eles?
-Ninguém perguntou por mim!`,
-`Os sacerdotes não disseram: Onde está o Senhor?
+Ninguém perguntou por mim!`},
+{titulo:"O SENHOR, NÃO OS ÍDOLOS",texto:`Os sacerdotes não disseram: Onde está o Senhor?
 Os que tratavam da lei não me conheceram
 Os pastores se revoltaram contra mim
 Os profetas profetizaram por Baal
@@ -98,8 +104,8 @@ E o meu povo trocou a sua glória
 Por aquilo que não tem proveito algum
 E cometeu dois males
 A mim me abandonaram, Fonte de Águas Vivas
-E cavaram cisternas rachadas!`,
-`Oh, geração
+E cavaram cisternas rachadas!`},
+{titulo:"O SENHOR, NÃO OS ÍDOLOS",texto:`Oh, geração
 Considere a palavra do Senhor!
 Será que eu tenho sido um deserto pra vocês?
 Então, por que vocês dizem
@@ -108,98 +114,103 @@ Mas reconhece agora que você transgrediu contra o Senhor
 E se prostituiu com estranhos
 E não deu ouvidos a minha voz
 Volte pra mim, meu povo, voltem, filhos!
-Voltem! E eu os levarei a Sião`,
-`Derruba os amores rivais
+Voltem! E eu os levarei a Sião`},
+{titulo:"O SENHOR, NÃO OS ÍDOLOS",texto:`Derruba os amores rivais
 Expõe todos esses amantes
-E traz o nosso coração de volta ao dia do primeiro amor`,
-`Pois é como está escrito
+E traz o nosso coração de volta ao dia do primeiro amor`},
+{titulo:"O SENHOR, NÃO OS ÍDOLOS",texto:`Pois é como está escrito
 Eu me lembro bem, diz o Senhor
 Eu me lembro bem
 De quando você era noiva e me seguia pelo deserto
-Em uma terra em que não se semeia`,
-`Ah, eu sei!
+Em uma terra em que não se semeia`},
+{titulo:"O SENHOR, NÃO OS ÍDOLOS",texto:`Ah, eu sei!
 Ah, eu sei que o Senhor se lembra
 Dos dias do primeiro amor da sua igreja
-Eu sei que estás chamando a sua amada de novo`,
-`Quem mais poderia dizer?
+Eu sei que estás chamando a sua amada de novo`},
+{titulo:"O SENHOR, NÃO OS ÍDOLOS",texto:`Quem mais poderia dizer?
 Quem mais poderia dizer
 Aquilo que vai acontecer no futuro?
 Quem mais poderia fazer
 Aquilo que se fez desde os tempos antigos?
 O Senhor, e não os ídolos
-Só o Senhor, e não os ídolos`,
-`O Senhor, não os ídolos
+Só o Senhor, e não os ídolos`},
+{titulo:"O SENHOR, NÃO OS ÍDOLOS",texto:`O Senhor, não os ídolos
 O Senhor, não os ídolos
 O Senhor, não os ídolos
 O Senhor, não os ídolos
 Só o Senhor, e não os ídolos
-O Senhor, e não os ídolos`,
-`E nós declaramos a nossa devoção para sempre`,
-`O Senhor, não os ídolos
+O Senhor, e não os ídolos`},
+{titulo:"O SENHOR, NÃO OS ÍDOLOS",texto:`E nós declaramos a nossa devoção para sempre`},
+{titulo:"O SENHOR, NÃO OS ÍDOLOS",texto:`O Senhor, não os ídolos
 O Senhor, não os ídolos
 O Senhor, não os ídolos (tu serás o primeiro)
 O Senhor, não os ídolos
 Só o Senhor, e não os ídolos
-O Senhor, e não os ídolos`,
-`Eles têm boca e não falam
+O Senhor, e não os ídolos`},
+{titulo:"O SENHOR, NÃO OS ÍDOLOS",texto:`Eles têm boca e não falam
 Têm olhos e não veem
 Têm mãos e não apalpam
-Têm pés e não caminham`,
-`Só o Senhor é Deus, não os ídolos
-O Senhor, não os ídolos`,
-`Eles têm boca e não podem falar, Senhor
+Têm pés e não caminham`},
+{titulo:"O SENHOR, NÃO OS ÍDOLOS",texto:`Só o Senhor é Deus, não os ídolos
+O Senhor, não os ídolos`},
+{titulo:"O SENHOR, NÃO OS ÍDOLOS",texto:`Eles têm boca e não podem falar, Senhor
 Eles têm boca e não falam
 Têm olhos e não veem
 Têm mãos e não apalpam
-Têm pés e não caminham`,
-`Só o Senhor é Deus, não os ídolos
-O Senhor, e não os ídolos`,
-`O Senhor, mais ninguém
+Têm pés e não caminham`},
+{titulo:"O SENHOR, NÃO OS ÍDOLOS",texto:`Só o Senhor é Deus, não os ídolos
+O Senhor, e não os ídolos`},
+{titulo:"O SENHOR, NÃO OS ÍDOLOS",texto:`O Senhor, mais ninguém
 O Senhor, só o Senhor
-Diga a Ele`,
-`O Senhor, não os ídolos
+Diga a Ele`},
+{titulo:"O SENHOR, NÃO OS ÍDOLOS",texto:`O Senhor, não os ídolos
 O Senhor, não os ídolos
 O Senhor, não os ídolos
 O Senhor, não os ídolos
 Só o Senhor, e não os ídolos
-O Senhor, e não os ídolos`
+O Senhor, e não os ídolos`}
 ];
-let current = -1;
-const lyrics = document.getElementById('lyrics');
-const counter = document.getElementById('counter');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
-const startBtn = document.getElementById('startBtn');
-const progressBar = document.getElementById('progressBar');
-function showSlide(index){
-  current = Math.max(0, Math.min(index, slides.length - 1));
-  lyrics.textContent = slides[current];
-  counter.textContent = `${String(current + 1).padStart(2,'0')} / ${String(slides.length).padStart(2,'0')}`;
-  prevBtn.disabled = current === 0;
-  nextBtn.disabled = current === slides.length - 1;
-  progressBar.style.width = `${((current + 1) / slides.length) * 100}%`;
-}
-startBtn.addEventListener('click', () => {
-  document.getElementById('coverPage').hidden = true;
-  document.getElementById('lyricsPage').hidden = false;
-  if (current < 0) showSlide(0);
-  else if (current === slides.length - 1) showSlide(0);
-  else showSlide(current + 1);
-});
-prevBtn.addEventListener('click', () => { if(current > 0) showSlide(current - 1); });
-nextBtn.addEventListener('click', () => { if(current < slides.length - 1) showSlide(current + 1); });
-document.getElementById('fullscreenBtn').addEventListener('click', async () => {
-  try {
-    if (!document.fullscreenElement) await document.documentElement.requestFullscreen();
-    else await document.exitFullscreen();
-  } catch(e) { alert('A tela cheia não está disponível neste navegador.'); }
-});
-document.addEventListener('keydown', e => {
-  if(!document.getElementById('lyricsPage').hidden && e.key === 'ArrowRight' && current < slides.length - 1) showSlide(current < 0 ? 0 : current + 1);
-  if(!document.getElementById('lyricsPage').hidden && e.key === 'ArrowLeft' && current > 0) showSlide(current - 1);
-});
 
-// A capa aparece primeiro; a letra abre ao tocar em "Iniciar música".
+let atual = 0;
+
+function iniciar(){
+  document.getElementById("inicio").classList.add("escondido");
+  document.getElementById("letras").classList.remove("escondido");
+  document.getElementById("controles").classList.remove("escondido");
+  mostrar();
+}
+
+function mostrar(){
+  const parte = partes[atual];
+  document.getElementById("etiqueta").textContent = parte.titulo;
+  document.getElementById("texto").textContent = parte.texto;
+  document.getElementById("numero").textContent =
+    String(atual+1).padStart(2,"0")+" / "+String(partes.length).padStart(2,"0");
+  document.getElementById("barra").style.width =
+    ((atual+1)/partes.length*100)+"%";
+  document.getElementById("texto").scrollTop = 0;
+}
+
+function avancar(){
+  if(atual < partes.length-1){ atual++; mostrar(); }
+}
+
+function voltar(){
+  if(atual > 0){ atual--; mostrar(); }
+}
+
+function telaCheia(){
+  if(!document.fullscreenElement){
+    document.documentElement.requestFullscreen?.();
+  } else {
+    document.exitFullscreen?.();
+  }
+}
+
+document.addEventListener("keydown", e=>{
+  if(e.key==="ArrowRight" || e.key===" "){ e.preventDefault(); avancar(); }
+  if(e.key==="ArrowLeft"){ voltar(); }
+});
 </script>
 </body>
 </html>
