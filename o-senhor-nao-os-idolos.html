@@ -5,38 +5,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Banda Kadosh | O Senhor, Não os Ídolos</title>
 <style>
-:root{--red:#e00000;--dark:#050505;--panel:#101010;--white:#f7f7f7}
+:root{--red:#ff251b;--dark:#050505;--white:#f7f4f6}
 *{box-sizing:border-box}
-body{margin:0;background:radial-gradient(ellipse at center,#3b0710 0%,#180308 42%,#030303 100%);color:var(--white);font-family:Arial,Helvetica,sans-serif;min-height:100vh}
+html,body{margin:0;min-height:100%;background:#050505;color:var(--white);font-family:Arial,Helvetica,sans-serif}
+body{min-height:100vh;background:radial-gradient(ellipse at 50% 45%,#260811 0%,#10050a 48%,#030303 100%)}
+[hidden]{display:none!important}
+button{font:inherit;cursor:pointer}
 .cover{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:28px 22px}
 .cover-brand{font-size:clamp(2.5rem,10vw,4.4rem);font-weight:900;letter-spacing:8px;line-height:1.15}
 .cover-brand span{display:block;color:#ff251b;text-shadow:0 0 18px #ff251b55}
 .cover-song{margin-top:30px;color:#ff4038;font-size:clamp(1rem,4vw,1.4rem);font-weight:800;letter-spacing:5px;text-transform:uppercase}
 .cover-artist{margin-top:24px;font-size:1.2rem;font-weight:800;letter-spacing:2px}
 .cover-sub{margin-top:24px;font-size:.95rem;font-weight:800;letter-spacing:4px}
-.cover .startbtn{margin-top:58px;background:#ff2b16;border-color:#ff2b16;border-radius:999px;padding:17px 30px;box-shadow:0 0 24px #ff2b1666}
-#lyricsPage[hidden]{display:none}
-button{font:inherit;cursor:pointer}
-.topbar{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid #4a0000;background:#050505cc}
-.brand{font-weight:900;letter-spacing:4px;text-transform:uppercase}.brand span{color:var(--red);text-shadow:0 0 15px #e00000}
-.actions{display:flex;gap:8px}.smallbtn,.navbtn,.startbtn{background:#160000;color:white;border:1px solid var(--red);border-radius:10px;padding:10px 14px;box-shadow:0 0 12px #e0000022}
-.smallbtn:hover,.navbtn:hover,.startbtn:hover{background:#380000;box-shadow:0 0 18px #e0000066}
-main{width:min(900px,100%);margin:0 auto;padding:28px 18px 42px}
-.hero{text-align:center;padding:24px 10px 30px}
-.kicker{color:#ff5555;letter-spacing:4px;font-size:.76rem;text-transform:uppercase}
-h1{font-size:clamp(2rem,7vw,4rem);line-height:1.04;margin:14px 0;text-transform:uppercase;text-shadow:0 0 24px #e000004d}
-.artist{color:#d6d6d6;font-size:1.1rem}
-.redline{height:3px;width:100px;background:var(--red);margin:24px auto;box-shadow:0 0 18px var(--red)}
-.stage{border:1px solid #560000;border-radius:20px;background:linear-gradient(145deg,#130303,#080808 70%);padding:clamp(22px,5vw,48px);min-height:310px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 0 32px #e0000012}
-.counter{color:#ff5555;text-transform:uppercase;letter-spacing:3px;font-size:.78rem;margin-bottom:24px}
-.lyrics{font-size:clamp(1.35rem,4.7vw,2.25rem);font-weight:700;line-height:1.55;white-space:pre-line;text-shadow:0 0 14px #ffffff12}
-.controls{display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;margin-top:20px}
-.navbtn{min-width:125px}.navbtn:disabled{opacity:.35;cursor:not-allowed}
-.startbtn{padding:14px 24px;font-weight:800;text-transform:uppercase;letter-spacing:1px}
-.progress{height:4px;background:#2b1111;border-radius:99px;overflow:hidden;margin-top:22px}.progress span{display:block;height:100%;width:0;background:var(--red);box-shadow:0 0 10px var(--red);transition:width .2s}
-.hint{text-align:center;color:#999;font-size:.85rem;margin-top:16px}
-footer{text-align:center;padding:24px 12px;color:#777;font-size:.8rem;letter-spacing:2px}
-@media(max-width:480px){.topbar{padding:14px 12px}.brand{letter-spacing:2px;font-size:.88rem}.smallbtn{padding:9px 10px}.stage{min-height:280px}.navbtn{min-width:110px}}
+.startbtn{background:#ff2b16;color:#fff;border:1px solid #ff2b16;border-radius:999px;padding:17px 30px;font-weight:900;letter-spacing:1px;box-shadow:0 0 24px #ff2b1666}
+.cover .startbtn{margin-top:58px}
+#lyricsPage{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;padding:0 0 22px}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:20px clamp(16px,5vw,34px) 14px}
+.brand{font-weight:900;letter-spacing:3px;text-transform:uppercase;font-size:clamp(.85rem,3.5vw,1rem)}.brand span{color:var(--red);text-shadow:0 0 15px #e00000}
+.counter{font-size:clamp(.9rem,3.6vw,1.05rem);font-weight:900;letter-spacing:1px;white-space:nowrap}
+.progress{height:4px;background:#371421;margin:0 clamp(16px,5vw,34px);border-radius:99px;overflow:hidden}
+.progress span{display:block;height:100%;width:0;background:var(--red);box-shadow:0 0 10px var(--red);transition:width .2s}
+.slidearea{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px clamp(22px,6vw,48px) 100px;min-height:0}
+.kicker{color:#ff3b35;letter-spacing:5px;font-size:clamp(.8rem,3.5vw,1rem);font-weight:900;text-transform:uppercase;margin-bottom:42px}
+.lyrics{font-size:clamp(1.25rem,4.8vw,2.15rem);font-weight:800;line-height:1.75;white-space:pre-line;text-shadow:0 0 14px #ffffff12;max-width:850px}
+.controls{position:fixed;bottom:24px;left:0;right:0;display:flex;justify-content:center;align-items:center;gap:10px;padding:0 12px}
+.navbtn{width:64px;height:58px;border:0;border-radius:12px;background:#e90000;color:white;font-size:1.4rem;box-shadow:0 0 15px #e0000055}
+.navbtn:disabled{opacity:.45}
+.hint{display:none}
+@media(max-width:480px){.topbar{padding-top:22px}.slidearea{padding-bottom:105px}.kicker{margin-bottom:36px}.lyrics{line-height:1.8}.navbtn{width:60px;height:56px}}
 </style>
 </head>
 <body>
@@ -50,29 +46,18 @@ footer{text-align:center;padding:24px 12px;color:#777;font-size:.8rem;letter-spa
 <div id="lyricsPage" hidden>
 <header class="topbar">
   <div class="brand">Banda <span>Kadosh</span></div>
-  <div class="actions">
-    <button class="smallbtn" id="fullscreenBtn" type="button">⛶ Tela cheia</button>
-  </div>
+  <div class="counter" id="counter">01 / 20</div>
 </header>
-<main>
-  <section class="hero">
-    <div class="kicker">O Senhor, não os ídolos</div>
-    <h1>O Senhor,<br>Não os Ídolos</h1>
-    <div class="artist">Thamires Garcia</div>
-    <div class="redline"></div>
-  </section>
-  <section class="stage" aria-live="polite">
-    <div class="counter" id="counter">Trecho 1</div>
-    <div class="lyrics" id="lyrics"></div>
-  </section>
-  <div class="controls">
-    <button class="navbtn" id="prevBtn" type="button" disabled>← Anterior</button>
-    <button class="navbtn" id="nextBtn" type="button" disabled>Próxima →</button>
-  </div>
-  <div class="progress"><span id="progressBar"></span></div>
-  <div class="hint">Use as setas do teclado ← → para trocar os trechos.</div>
+<div class="progress"><span id="progressBar"></span></div>
+<main class="slidearea" aria-live="polite">
+  <div class="kicker">O Senhor, Não os Ídolos</div>
+  <div class="lyrics" id="lyrics"></div>
 </main>
-<footer>BANDA KADOSH • O SENHOR, NÃO OS ÍDOLOS</footer>
+<div class="controls">
+  <button class="navbtn" id="prevBtn" type="button" aria-label="Slide anterior" disabled>←</button>
+  <button class="navbtn" id="nextBtn" type="button" aria-label="Próximo slide" disabled>→</button>
+  <button class="navbtn" id="fullscreenBtn" type="button" aria-label="Tela cheia">⛶</button>
+</div>
 </div>
 <script>
 const slides = [
@@ -189,22 +174,17 @@ const progressBar = document.getElementById('progressBar');
 function showSlide(index){
   current = Math.max(0, Math.min(index, slides.length - 1));
   lyrics.textContent = slides[current];
-  counter.textContent = `Trecho ${current + 1} de ${slides.length}`;
+  counter.textContent = `${String(current + 1).padStart(2,'0')} / ${String(slides.length).padStart(2,'0')}`;
   prevBtn.disabled = current === 0;
   nextBtn.disabled = current === slides.length - 1;
-  startBtn.textContent = current === slides.length - 1 ? '↻ Recomeçar' : '▶ Próximo trecho';
   progressBar.style.width = `${((current + 1) / slides.length) * 100}%`;
 }
 startBtn.addEventListener('click', () => {
-  if (current < 0) {
-    document.getElementById('coverPage').hidden = true;
-    document.getElementById('lyricsPage').hidden = false;
-    showSlide(0);
-  } else if (current === slides.length - 1) {
-    showSlide(0);
-  } else {
-    showSlide(current + 1);
-  }
+  document.getElementById('coverPage').hidden = true;
+  document.getElementById('lyricsPage').hidden = false;
+  if (current < 0) showSlide(0);
+  else if (current === slides.length - 1) showSlide(0);
+  else showSlide(current + 1);
 });
 prevBtn.addEventListener('click', () => { if(current > 0) showSlide(current - 1); });
 nextBtn.addEventListener('click', () => { if(current < slides.length - 1) showSlide(current + 1); });
@@ -215,8 +195,8 @@ document.getElementById('fullscreenBtn').addEventListener('click', async () => {
   } catch(e) { alert('A tela cheia não está disponível neste navegador.'); }
 });
 document.addEventListener('keydown', e => {
-  if(e.key === 'ArrowRight' && current < slides.length - 1) showSlide(current < 0 ? 0 : current + 1);
-  if(e.key === 'ArrowLeft' && current > 0) showSlide(current - 1);
+  if(!document.getElementById('lyricsPage').hidden && e.key === 'ArrowRight' && current < slides.length - 1) showSlide(current < 0 ? 0 : current + 1);
+  if(!document.getElementById('lyricsPage').hidden && e.key === 'ArrowLeft' && current > 0) showSlide(current - 1);
 });
 
 // A capa aparece primeiro; a letra abre ao tocar em "Iniciar música".
