@@ -3,69 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Banda Kadosh | louvorzão</title>
+    <title>BANDA KADOSH | LOUVORZÃO</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background: #000; color: #fff; min-height: 100vh; overflow: hidden; }
+        body { background: #000; color: #fff; min-height: 100vh; }
+        
         .screen {
             position: absolute; top: 0; left: 0; width: 100%; height: 100vh;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
-            transition: opacity 0.5s ease; opacity: 0; pointer-events: none;
+            transition: opacity 0.4s ease; opacity: 0; pointer-events: none;
             background: radial-gradient(ellipse at center, #2b0a0a 0%, #000 70%); padding: 2rem;
         }
         .screen.active { opacity: 1; pointer-events: auto; }
 
         h1.banda {
-            font-size: clamp(2.5rem, 8vw, 4rem); font-weight: 700;
-            letter-spacing: 0.3em; text-align: center; margin-bottom: 0.5rem;
+            font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 800;
+            letter-spacing: 0.25em; text-align: center; margin-bottom: 0.3rem;
         }
         h1.banda span {
-            color: #ff0000; text-shadow: 0 0 20px rgba(255,0,0,0.6), 0 0 40px rgba(255,0,0,0.3);
+            color: #ff0000; text-shadow: 0 0 25px rgba(255,0,0,0.7), 0 0 50px rgba(255,0,0,0.4);
         }
         h2.titulo-medley {
-            color: #cc3333; font-size: clamp(1rem, 3vw, 1.2rem);
-            letter-spacing: 0.4em; margin-bottom: 0.8rem; text-transform: uppercase;
+            color: #ff4444; font-size: clamp(1.1rem, 4vw, 1.5rem);
+            letter-spacing: 0.3em; margin-bottom: 0.5rem; text-transform: uppercase;
+            font-weight: 600;
         }
-        p.versiculo { font-size: 0.9rem; opacity: 0.5; margin-bottom: 3rem; text-align: center; }
+        p.versiculo { font-size: 0.9rem; opacity: 0.5; margin-bottom: 2.5rem; text-align: center; }
 
         .botoes-musicas {
-            display: flex; flex-direction: column; gap: 0.9rem; align-items: center; width: 100%; max-width: 600px;
+            display: flex; flex-direction: column; gap: 0.8rem; align-items: center; width: 100%; max-width: 600px;
         }
         .btn-musica {
-            background: rgba(153,0,0,0.6); border: 2px solid #cc0000; color: white;
-            padding: 1rem 1.5rem; font-size: 0.95rem; cursor: pointer; transition: all 0.3s ease;
+            background: linear-gradient(135deg, rgba(139,0,0,0.7), rgba(180,0,0,0.5));
+            border: 2px solid #ff3333; color: white;
+            padding: 1.1rem 1.5rem; font-size: 0.95rem; cursor: pointer; transition: all 0.3s ease;
             border-radius: 50px; width: 100%; text-align: center; line-height: 1.4;
+            font-weight: 500;
         }
-        .btn-musica:hover { background: #cc0000; box-shadow: 0 0 20px rgba(255,0,0,0.5); }
-        .btn-artista { font-size: 0.8rem; opacity: 0.6; margin-top: 0.25rem; display: block; }
+        .btn-musica:hover { 
+            background: linear-gradient(135deg, #cc0000, #ff2222);
+            box-shadow: 0 0 25px rgba(255,0,0,0.5); transform: scale(1.02);
+        }
+        .btn-artista { font-size: 0.78rem; opacity: 0.65; margin-top: 0.25rem; display: block; }
 
         .top-bar {
-            position: absolute; top: 0; left: 0; width: 100%; padding: 1.5rem;
+            position: absolute; top: 0; left: 0; width: 100%; padding: 1.2rem;
             display: flex; justify-content: center; align-items: center;
-            font-size: 0.85rem; letter-spacing: 0.15em; color: #888;
+            font-size: 0.8rem; letter-spacing: 0.15em; color: #777;
         }
         .top-bar .name { color: #fff; font-weight: 600; }
-        .top-bar .page-num { position: absolute; right: 1.5rem; }
+        .top-bar .page-num { position: absolute; right: 1.2rem; }
         .divider {
-            position: absolute; top: 60px; left: 5%; width: 90%; height: 2px;
+            position: absolute; top: 55px; left: 5%; width: 90%; height: 2px;
             background: linear-gradient(to right, #cc0000, transparent);
         }
         .lyric-title {
-            color: #992222; font-size: 0.9rem; letter-spacing: 0.15em;
-            text-transform: uppercase; margin-bottom: 2.5rem; text-align: center; line-height: 1.5;
+            color: #cc4444; font-size: 0.9rem; letter-spacing: 0.15em;
+            text-transform: uppercase; margin-bottom: 2rem; text-align: center; line-height: 1.5;
         }
-        .lyric-artist { font-size: 0.8rem; opacity: 0.5; margin-top: 0.4rem; display: block; }
+        .lyric-artist { font-size: 0.8rem; opacity: 0.5; margin-top: 0.3rem; display: block; }
         .lyrics {
             text-align: center; font-size: clamp(1rem, 3vw, 1.4rem);
             line-height: 1.8; padding: 0 1rem; max-width: 700px;
         }
         .nav-buttons {
-            position: absolute; bottom: 2.5rem; display: flex; gap: 1rem;
+            position: absolute; bottom: 2rem; display: flex; gap: 0.8rem;
         }
         .nav-btn {
-            background: #990000; border: none; color: white; width: 50px; height: 50px;
-            border-radius: 8px; font-size: 1.1rem; cursor: pointer;
-            box-shadow: 0 0 10px rgba(153,0,0,0.4); transition: all 0.2s ease;
+            background: #880000; border: none; color: white; width: 48px; height: 48px;
+            border-radius: 8px; font-size: 1rem; cursor: pointer;
+            box-shadow: 0 0 8px rgba(136,0,0,0.4); transition: all 0.2s ease;
         }
         .nav-btn:hover { background: #cc0000; }
     </style>
@@ -73,34 +80,45 @@
 <body>
 
     <!-- ====================================== -->
-    <!-- TELA PRINCIPAL -->
+    <!-- TELA INICIAL - LOUVORZÃO -->
     <!-- ====================================== -->
     <div class="screen active" id="inicio">
         <h1 class="banda">BANDA<br><span>KADOSH</span></h1>
-        <h2 class="titulo-medley">MEDLEY</h2>
-        <p class="versiculo">Oséias 6:1-2</p>
+        <h2 class="titulo-medley">🔥 LOUVORZÃO 🔥</h2>
+        <p class="versiculo">Oséias 6:1-2 • Vinde, voltemos ao Senhor</p>
 
         <div class="botoes-musicas">
-            <button class="btn-musica" onclick="irPara('m1-p1')">
+            <button class="btn-musica" onclick="mostrar('m1-p1')">
                 🎵 COMO ANTIGAMENTE + VENTOS DO AVIVAMENTO
             </button>
-            <button class="btn-musica" onclick="irPara('m2-p1')">
+            <button class="btn-musica" onclick="mostrar('m2-p1')">
                 🎵 O SENHOR, NÃO OS ÍDOLOS
                 <span class="btn-artista">Thamires García</span>
             </button>
-            <button class="btn-musica" onclick="irPara('m3-p1')">
+            <button class="btn-musica" onclick="mostrar('m3-p1')">
                 🎵 DE VOLTA + JESUS MEU PRIMEIRO AMOR + BÁLSAMO DE GILEADE
             </button>
-            <button class="btn-musica" onclick="irPara('m4-p1')">
+            <button class="btn-musica" onclick="mostrar('m4-p1')">
                 🎵 EU ME LEMBRO
-                <span class="btn-artist">Morada</span>
+                <span class="btn-artista">Morada</span>
             </button>
-            <button class="btn-musica" onclick="irPara('m5-p1')">
+            <button class="btn-musica" onclick="mostrar('m5-p1')">
                 🎵 HÁ UM VINHO NOVO
                 <span class="btn-artista">Ministério Zoe</span>
             </button>
         </div>
     </div>
+
+    <!-- ====================================== -->
+    <!-- FUNÇÕES DE NAVEGAÇÃO -->
+    <!-- ====================================== -->
+    <script>
+        function mostrar(id) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            window.scrollTo(0,0);
+        }
+    </script>
 
     <!-- ====================================== -->
     <!-- BOTÃO 1: COMO ANTIGAMENTE + VENTOS DO AVIVAMENTO -->
@@ -116,8 +134,8 @@
             Ou uma pregação
         </div>
         <div class="nav-buttons">
-            <button class="nav-btn" onclick="irPara('inicio')">←</button>
-            <button class="nav-btn" onclick="irPara('m1-p2')">→</button>
+            <button class="nav-btn" onclick="mostrar('inicio')">🏠</button>
+            <button class="nav-btn" onclick="mostrar('m1-p2')">→</button>
         </div>
     </div>
 
@@ -132,8 +150,8 @@
             Mas você não estava ligado comigo
         </div>
         <div class="nav-buttons">
-            <button class="nav-btn" onclick="irPara('m1-p1')">←</button>
-            <button class="nav-btn" onclick="irPara('m1-p3')">→</button>
+            <button class="nav-btn" onclick="mostrar('m1-p1')">←</button>
+            <button class="nav-btn" onclick="mostrar('m1-p3')">→</button>
         </div>
     </div>
 
@@ -148,8 +166,8 @@
             O tempo está passando e você assim
         </div>
         <div class="nav-buttons">
-            <button class="nav-btn" onclick="irPara('m1-p2')">←</button>
-            <button class="nav-btn" onclick="irPara('m1-p4')">→</button>
+            <button class="nav-btn" onclick="mostrar('m1-p2')">←</button>
+            <button class="nav-btn" onclick="mostrar('m1-p4')">→</button>
         </div>
     </div>
 
@@ -164,8 +182,8 @@
             O tempo está passando e você assim
         </div>
         <div class="nav-buttons">
-            <button class="nav-btn" onclick="irPara('m1-p3')">←</button>
-            <button class="nav-btn" onclick="irPara('m1-p5')">→</button>
+            <button class="nav-btn" onclick="mostrar('m1-p3')">←</button>
+            <button class="nav-btn" onclick="mostrar('m1-p5')">→</button>
         </div>
     </div>
 
@@ -180,8 +198,8 @@
             Dentro da igreja e longe de mim
         </div>
         <div class="nav-buttons">
-            <button class="nav-btn" onclick="irPara('m1-p4')">←</button>
-            <button class="nav-btn" onclick="irPara('m1-p6')">→</button>
+            <button class="nav-btn" onclick="mostrar('m1-p4')">←</button>
+            <button class="nav-btn" onclick="mostrar('m1-p6')">→</button>
         </div>
     </div>
 
@@ -196,8 +214,8 @@
             Quero segurar a tua mão
         </div>
         <div class="nav-buttons">
-            <button class="nav-btn" onclick="irPara('m1-p5')">←</button>
-            <button class="nav-btn" onclick="irPara('m1-p7')">→</button>
+            <button class="nav-btn" onclick="mostrar('m1-p5')">←</button>
+            <button class="nav-btn" onclick="mostrar('m1-p7')">→</button>
         </div>
     </div>
 
@@ -212,8 +230,8 @@
             Sinta agora eu te abraçar
         </div>
         <div class="nav-buttons">
-            <button class="nav-btn" onclick="irPara('m1-p6')">←</button>
-            <button class="nav-btn" onclick="irPara('m1-p8')">→</button>
+            <button class="nav-btn" onclick="mostrar('m1-p6')">←</button>
+            <button class="nav-btn" onclick="mostrar('m1-p8')">→</button>
         </div>
     </div>
 
@@ -228,8 +246,8 @@
             Quero te abraçar de novo
         </div>
         <div class="nav-buttons">
-            <button class="nav-btn" onclick="irPara('m1-p7')">←</button>
-            <button class="nav-btn" onclick="irPara('m1-p9')">→</button>
+            <button class="nav-btn" onclick="mostrar('m1-p7')">←</button>
+            <button class="nav-btn" onclick="mostrar('m1-p9')">→</button>
         </div>
     </div>
 
@@ -244,8 +262,8 @@
             Quero te fazer um vaso novo
         </div>
         <div class="nav-buttons">
-            <button class="nav-btn" onclick="irPara('m1-p8')">←</button>
-            <button class="nav-btn" onclick="irPara('m1-p10')">→</button>
+            <button class="nav-btn" onclick="mostrar('m1-p8')">←</button>
+            <button class="nav-btn" onclick="mostrar('m1-p10')">→</button>
         </div>
     </div>
 
@@ -264,8 +282,8 @@
             Como antigamente
         </div>
         <div class="nav-buttons">
-            <button class="nav-btn" onclick="irPara('m1-p9')">←</button>
-            <button class="nav-btn" onclick="irPara('m1-p11')">→</button>
+            <button class="nav-btn" onclick="mostrar('m1-p9')">←</button>
+            <button class="nav-btn" onclick="mostrar('m1-p11')">→</button>
         </div>
     </div>
 
@@ -284,8 +302,8 @@
             Agindo com poder e graça em nossa nação
         </div>
         <div class="nav-buttons">
-            <button class="nav-btn" onclick="irPara('m1-p10')">←</button>
-            <button class="nav-btn" onclick="irPara('m1-p12')">→</button>
+            <button class="nav-btn" onclick="mostrar('m1-p10')">←</button>
+            <button class="nav-btn" onclick="mostrar('m1-p12')">→</button>
         </div>
     </div>
 
@@ -303,8 +321,8 @@
             obras maiores ainda fará"
         </div>
         <div class="nav-buttons">
-            <button class="nav-btn" onclick="irPara('m1-p11')">←</button>
-            <button class="nav-btn" onclick="irPara('m1-p13')">→</button>
+            <button class="nav-btn" onclick="mostrar('m1-p11')">←</button>
+            <button class="nav-btn" onclick="mostrar('m1-p13')">→</button>
         </div>
     </div>
 
@@ -322,19 +340,5 @@
             Dos frutos de um avivamento<br><br>
             Oh faz chover, Senhor<br>
             Atende o Teu povo que clama<br>
-            Que anseia por ver o Teu braço<br>
+            Que anseia por ver o Teu braço
             Agindo com poder e graça em nossa nação
-        </div>
-        <div class="nav-buttons">
-            <button class="nav-btn" onclick="irPara('m1-p12')">←</button>
-            <button class="nav-btn" onclick="irPara('inicio')">🏠</button>
-        </div>
-    </div>
-
-    <!-- ====================================== -->
-    <!-- BOTÃO 2: O SENHOR, NÃO OS ÍDOLOS - Thamires García -->
-    <!-- ====================================== -->
-    <div class="screen" id="m2-p1">
-        <div class="top-bar"><span class="name">BANDA KADOSH</span><span class="page-num">1/12</span></div>
-        <div class="divider"></div>
-        <h2 class="lyric-title">O SENHOR, NÃO OS ÍDOLOS 
