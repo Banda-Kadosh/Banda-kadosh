@@ -2,159 +2,494 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Banda Kadosh</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BANDA KADOSH | LOUVORZÃO</title>
 <style>
-*{box-sizing:border-box}
-body{
- margin:0;background:#090909;color:white;
- font-family:Arial;text-align:center
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-header{padding:35px 10px}
-.logo{font-size:48px;font-weight:900;letter-spacing:5px}
-.logo span{color:#e32938}
-header p{color:#e32938;letter-spacing:5px}
-#menu{max-width:650px;margin:20px auto;padding:15px}
-.song{
- display:block;width:100%;padding:20px;margin:12px 0;
- background:#1b1113;color:white;border:1px solid #a51e2c;
- border-radius:12px;font-weight:bold;font-size:16px
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  min-height: 100vh;
 }
-#presentation{display:none;padding:15px}
-.slide{
- max-width:900px;min-height:350px;margin:20px auto;
- padding:30px 15px;background:#171113;
- border:1px solid #a51e2c;border-radius:15px;
- display:flex;flex-direction:column;justify-content:center
+
+/* TELA INICIAL */
+#inicio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
 }
-#songTitle{color:#e32938;font-size:22px}
-#lyrics{
- white-space:pre-line;font-size:clamp(22px,4vw,36px);
- line-height:1.6;font-weight:bold
+
+#inicio h1 {
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
 }
-.controls{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-button{cursor:pointer}
-.controls button{
- padding:15px 23px;background:#b82030;color:white;
- border:0;border-radius:30px;font-weight:bold
+#inicio h1 span.branco { color: #fff; }
+#inicio h1 span.vermelho { color: #ff3333; }
+
+#inicio .subtitulo {
+  color: #ff3333;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
 }
-#counter{color:#aaa;padding:15px}
-footer{padding:35px;color:#888}
+
+#inicio .versiculo {
+  color: #888;
+  font-size: 1rem;
+  margin-bottom: 3rem;
+}
+
+.botoes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  max-width: 700px;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.botao-musica {
+  background: transparent;
+  border: 2px solid #ff3333;
+  color: #ff3333;
+  padding: 1.2rem 0.8rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.botao-musica:active, .botao-musica:hover {
+  background: #ff3333;
+  color: #fff;
+}
+
+/* TELA DE MÚSICA */
+.tela-musica {
+  display: none;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.cabecalho {
+  margin-bottom: 2rem;
+}
+
+.cabecalho h2 {
+  color: #ff3333;
+  font-size: 1.8rem;
+  margin-bottom: 0.3rem;
+}
+
+.cabecalho p {
+  color: #888;
+  font-size: 1.1rem;
+}
+
+.caixa-letra {
+  border: 2px solid #442222;
+  background: #110808;
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.letra-slide {
+  font-size: 1.8rem;
+  line-height: 2;
+}
+
+.letra-slide p {
+  margin-bottom: 0.5rem;
+}
+
+.slide {
+  display: none;
+}
+.slide.visivel {
+  display: block;
+}
+
+.contador {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.navegacao {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.nav-btn {
+  background: #cc2222;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.nav-btn:active {
+  background: #ff3333;
+}
+
+.rodape {
+  margin-top: auto;
+  padding: 1rem;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.escondido {
+  display: none !important;
+}
 </style>
 </head>
 <body>
 
-<header>
- <div class="logo">BANDA <span>KADOSH</span></div>
- <p>🔥 LOUVORZÃO 🔥</p>
- <small>Oséias 6:1-2</small>
-</header>
+<!-- ========== TELA INICIAL ========== -->
+<div id="inicio">
+  <h1><span class="branco">BANDA</span> <span class="vermelho">KADOSH</span></h1>
+  <p class="subtitulo">🔥 LOUVORZÃO 🔥</p>
+  <p class="versiculo">Oséias 6:1-2 — "Vinde, voltemos ao Senhor..."</p>
 
-<section id="menu">
- <h2>ESCOLHA O LOUVOR</h2>
- <div id="songList"></div>
-</section>
+  <div class="botoes-grid">
+    <button class="botao-musica" onclick="abrirMusica(1)">🎵 O Senhor, Não os Ídolos</button>
+    <button class="botao-musica" onclick="abrirMusica(2)">🎵 Eu Me Lembro — Morada</button>
+    <button class="botao-musica" onclick="abrirMusica(3)">🎵 Há Um Vinho Novo</button>
+    <button class="botao-musica" onclick="abrirMusica(4)">🎵 Como Antigamente</button>
+    <button class="botao-musica" onclick="abrirMusica(5)">🎵 De Volta — Medley</button>
+  </div>
+</div>
 
-<section id="presentation">
- <div class="slide">
-  <h2 id="songTitle"></h2>
-  <p id="lyrics"></p>
- </div>
- <div id="counter"></div>
- <div class="controls">
-  <button onclick="previous()">← ANTERIOR</button>
-  <button onclick="next()">PRÓXIMO →</button>
-  <button onclick="fullscreen()">TELA CHEIA</button>
- </div>
- <div class="controls" style="margin-top:15px">
-  <button onclick="closePresentation()">VOLTAR À LISTA</button>
- </div>
-</section>
+<!-- ========== MÚSICA 1 ========== -->
+<div id="musica1" class="tela-musica escondido">
+  <div class="cabecalho">
+    <h2>O SENHOR, NÃO OS ÍDOLOS</h2>
+    <p>— Thamires Garcia</p>
+  </div>
 
-<footer>BANDA KADOSH ❤️<br>Uma geração que adora a Deus.</footer>
+  <div class="caixa-letra">
+    <div class="letra-slide">
+      <div class="slide visivel" id="m1s1">
+        <p>Pecamos, Senhor</p>
+        <p>O nosso coração está tão longe</p>
+        <br>
+        <p>E estes nossos ídolos</p>
+        <p>Nos fizeram cegos como eles são</p>
+      </div>
+      <div class="slide" id="m1s2">
+        <p>Faz de novo o povo saber</p>
+        <p>Que além de Ti</p>
+        <p>Não há mais nenhum Deus</p>
+      </div>
+      <div class="slide" id="m1s3">
+        <p>Quem mais poderia dizer</p>
+        <p>Aquilo que vai acontecer no futuro?</p>
+        <br>
+        <p>Quem mais poderia fazer</p>
+        <p>Aquilo que se fez desde os tempos antigos?</p>
+      </div>
+      <div class="slide" id="m1s4">
+        <p>O Senhor, e não os ídolos</p>
+        <p>O Senhor, e não os ídolos</p>
+      </div>
+      <div class="slide" id="m1s5">
+        <p>Só o Senhor, e não os ídolos</p>
+        <p>O Senhor, e não os ídolos</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="contador" id="contador1">Slide 1 de 5</p>
+
+  <div class="navegacao">
+    <button class="nav-btn" onclick="anteriorSlide()">← ANTERIOR</button>
+    <button class="nav-btn" onclick="proximoSlide()">PRÓXIMO →</button>
+    <button class="nav-btn" onclick="voltarInicio()">VOLTAR À LISTA</button>
+  </div>
+
+  <div class="rodape">
+    <p>BANDA KADOSH ❤️</p>
+    <p>Uma geração que adora a Deus.</p>
+  </div>
+</div>
+
+<!-- ========== MÚSICA 2 ========== -->
+<div id="musica2" class="tela-musica escondido">
+  <div class="cabecalho">
+    <h2>EU ME LEMBRO</h2>
+    <p>— Morada</p>
+  </div>
+
+  <div class="caixa-letra">
+    <div class="letra-slide">
+      <div class="slide visivel" id="m2s1">
+        <p>Eu me lembro quando a fome começou</p>
+        <p>Eu me lembro quando Jesus me despertou</p>
+        <br>
+        <p>Eu me lembro quando meu coração incendiou</p>
+      </div>
+      <div class="slide" id="m2s2">
+        <p>Era uma presença que eu não conhecia</p>
+        <p>Uma revelação que eu ainda não tinha</p>
+        <br>
+        <p>O tempo passava e eu nem percebia</p>
+        <p>Era como fogo que não se apagava</p>
+      </div>
+      <div class="slide" id="m2s3">
+        <p>Grato pela vida</p>
+        <p>Grato pela história</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="contador" id="contador2">Slide 1 de 3</p>
+
+  <div class="navegacao">
+    <button class="nav-btn" onclick="anteriorSlide()">← ANTERIOR</button>
+    <button class="nav-btn" onclick="proximoSlide()">PRÓXIMO →</button>
+    <button class="nav-btn" onclick="voltarInicio()">VOLTAR À LISTA</button>
+  </div>
+
+  <div class="rodape">
+    <p>BANDA KADOSH ❤️</p>
+    <p>Uma geração que adora a Deus.</p>
+  </div>
+</div>
+
+<!-- ========== MÚSICA 3 ========== -->
+<div id="musica3" class="tela-musica escondido">
+  <div class="cabecalho">
+    <h2>HÁ UM VINHO NOVO</h2>
+    <p>— Ministério Zoe</p>
+  </div>
+
+  <div class="caixa-letra">
+    <div class="letra-slide">
+      <div class="slide visivel" id="m3s1">
+        <p>Já cantei uma canção de amor</p>
+        <p>Já cantei uma canção da graça</p>
+        <br>
+        <p>E por quê não cantar na dor?</p>
+        <p>Quando o meu coração está quebrado?</p>
+      </div>
+      <div class="slide" id="m3s2">
+        <p>Há um vinho novo pra descer</p>
+        <p>Sobre odres que já foram rasgados</p>
+        <br>
+        <p>E agora são novos outra vez</p>
+      </div>
+      <div class="slide" id="m3s3">
+        <p>Há uma esperança pra cantar</p>
+        <p>Aquele que fez a ferida ligará</p>
+        <br>
+        <p>Há um vinho novo, eu sei</p>
+      </div>
+      <div class="slide" id="m3s4">
+        <p>Eu cantarei uma canção na minha dor</p>
+        <p>O choro pode durar uma noite</p>
+        <p>A alegria vem com a manhã</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="contador" id="contador3">Slide 1 de 4</p>
+
+  <div class="navegacao">
+    <button class="nav-btn" onclick="anteriorSlide()">← ANTERIOR</button>
+    <button class="nav-btn" onclick="proximoSlide()">PRÓXIMO →</button>
+    <button class="nav-btn" onclick="voltarInicio()">VOLTAR À LISTA</button>
+  </div>
+
+  <div class="rodape">
+    <p>BANDA KADOSH ❤️</p>
+    <p>Uma geração que adora a Deus.</p>
+  </div>
+</div>
+
+<!-- ========== MÚSICA 4 ========== -->
+<div id="musica4" class="tela-musica escondido">
+  <div class="cabecalho">
+    <h2>COMO ANTIGAMENTE</h2>
+  </div>
+
+  <div class="caixa-letra">
+    <div class="letra-slide">
+      <div class="slide visivel" id="m4s1">
+        <p>Já faz tempo que eu não ouço sua voz</p>
+        <p>Já faz tempo que eu não ouço sua oração</p>
+        <br>
+        <p>Quanto tempo faz que eu não te dou um louvor</p>
+        <p>Ou uma pregação?</p>
+      </div>
+      <div class="slide" id="m4s2">
+        <p>Aquela madrugada eu olhei pro seu quarto</p>
+        <p>A porta estava fechada e você dormindo</p>
+        <br>
+        <p>Sem falar de quando entrei naquele culto</p>
+        <p>Mas você não estava ligado comigo</p>
+      </div>
+      <div class="slide" id="m4s3">
+        <p>Quanto tempo faz que eu não posso te usar</p>
+        <p>Quanto tempo faz que eu não posso te tocar</p>
+        <p>Quanto tempo faz que eu não posso te abraçar</p>
+        <p>O tempo está passando e você assim</p>
+      </div>
+      <div class="slide" id="m4s4">
+        <p>Quantos hinos não pude te revelar</p>
+        <p>Quantas revelações não pude confiar</p>
+        <br>
+        <p>E das profundidades da minha palavra</p>
+        <p>O tempo está passando e você assim</p>
+      </div>
+      <div class="slide" id="m4s5">
+        <p>Eu quero no seu quarto te encontrar</p>
+        <p>E como eu falava contigo falar</p>
+        <br>
+        <p>Faz tanto tempo...</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="contador" id="contador4">Slide 1 de 5</p>
+
+  <div class="navegacao">
+    <button class="nav-btn" onclick="anteriorSlide()">← ANTERIOR</button>
+    <button class="nav-btn" onclick="proximoSlide()">PRÓXIMO →</button>
+    <button class="nav-btn" onclick="voltarInicio()">VOLTAR À LISTA</button>
+  </div>
+
+  <div class="rodape">
+    <p>BANDA KADOSH ❤️</p>
+    <p>Uma geração que adora a Deus.</p>
+  </div>
+</div>
+
+<!-- ========== MÚSICA 5 ========== -->
+<div id="musica5" class="tela-musica escondido">
+  <div class="cabecalho">
+    <h2>DE VOLTA</h2>
+    <p>— Medley</p>
+  </div>
+
+  <div class="caixa-letra">
+    <div class="letra-slide">
+      <div class="slide visivel" id="m5s1">
+        <p>Vinde, voltemos ao Senhor</p>
+        <p>Pois Ele de volta nos levou ao deserto</p>
+        <br>
+        <p>Para nos lembrar das primeiras obras</p>
+        <p>E da essência</p>
+      </div>
+      <div class="slide" id="m5s2">
+        <p>Muros Ele levantará em nossos caminhos</p>
+        <p>Com espinhos Ele nos cercará</p>
+      </div>
+      <div class="slide" id="m5s3">
+        <p>Para ensinar que no final</p>
+        <p>Ele amadurece o nosso amor</p>
+      </div>
+      <div class="slide" id="m5s4">
+        <p>Ainda que seja pela dor</p>
+        <p>Ele é fiel, pra sempre bom</p>
+      </div>
+      <div class="slide" id="m5s5">
+        <p>Ele amadurece o nosso amor</p>
+        <p>Ainda que seja pela dor</p>
+        <p>Ele é fiel, pra sempre bom</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="contador" id="contador5">Slide 1 de 5</p>
+
+  <div class="navegacao">
+    <button class="nav-btn" onclick="anteriorSlide()">← ANTERIOR</button>
+    <button class="nav-btn" onclick="proximoSlide()">PRÓXIMO →</button>
+    <button class="nav-btn" onclick="voltarInicio()">VOLTAR À LISTA</button>
+  </div>
+
+  <div class="rodape">
+    <p>BANDA KADOSH ❤️</p>
+    <p>Uma geração que adora a Deus.</p>
+  </div>
+</div>
 
 <script>
-const songs=[
- {title:"EU ME LEMBRO",artist:"MORADA",slides:[
-  "Letra autorizada: primeira parte",
-  "Letra autorizada: segunda parte"
- ]},
- {title:"DE VOLTA",artist:"LOUVOR",slides:[
-  "Letra autorizada: primeira parte",
-  "Letra autorizada: segunda parte"
- ]},
- {title:"COMO ANTIGAMENTE",artist:"LOUVOR",slides:[
-  "Letra autorizada: primeira parte",
-  "Letra autorizada: segunda parte"
- ]},
- {title:"O SENHOR, NÃO OS ÍDOLOS",artist:"THAMIRES GARCIA",slides:[
-  "Letra autorizada: primeira parte",
-  "Letra autorizada: segunda parte"
- ]},
- {title:"HÁ UM VINHO NOVO",artist:"MINISTÉRIO ZOE",slides:[
-  "Letra autorizada: primeira parte",
-  "Letra autorizada: segunda parte"
- ]}
-];
+let musicaAtual = 0;
+let slideAtual = 1;
+const totalSlides = {1:5, 2:3, 3:4, 4:5, 5:5};
 
-let currentSong=0;
-let currentSlide=0;
+function abrirMusica(n) {
+  musicaAtual = n;
+  slideAtual = 1;
+  document.getElementById('inicio').classList.add('escondido');
+  document.getElementById('musica'+n).classList.remove('escondido');
+  document.getElementById('musica'+n).style.display = 'flex';
+  mostrarSlide();
+}
 
-const list=document.getElementById("songList");
+function voltarInicio() {
+  document.getElementById('inicio').classList.remove('escondido');
+  for(let i=1; i<=5; i++) {
+    document.getElementById('musica'+i).classList.add('escondido');
+    document.getElementById('musica'+i).style.display = 'none';
+  }
+  musicaAtual = 0;
+}
 
-songs.forEach((song,index)=>{
- const button=document.createElement("button");
- button.className="song";
- button.textContent=song.title+" — "+song.artist;
- button.onclick=()=>openSong(index);
- list.appendChild(button);
+function mostrarSlide() {
+  for(let i=1; i<=10; i++) {
+    const el = document.getElementById('m'+musicaAtual+'s'+i);
+    if(el) el.classList.remove('visivel');
+  }
+  document.getElementById('m'+musicaAtual+'s'+slideAtual).classList.add('visivel');
+  document.getElementById('contador'+musicaAtual).textContent = 'Slide ' + slideAtual + ' de ' + totalSlides[musicaAtual];
+}
+
+function proximoSlide() {
+  let max = totalSlides[musicaAtual];
+  slideAtual++;
+  if(slideAtual > max) slideAtual = 1;
+  mostrarSlide();
+}
+
+function anteriorSlide() {
+  let max = totalSlides[musicaAtual];
+  slideAtual--;
+  if(slideAtual < 1) slideAtual = max;
+  mostrarSlide();
+}
+
+// Teclado
+document.addEventListener('keydown', e => {
+  if(musicaAtual === 0) return;
+  if(e.key === 'ArrowRight') proximoSlide();
+  if(e.key === 'ArrowLeft') anteriorSlide();
 });
-
-function openSong(index){
- currentSong=index;
- currentSlide=0;
- document.getElementById("menu").style.display="none";
- document.getElementById("presentation").style.display="block";
- showSlide();
-}
-
-function showSlide(){
- const song=songs[currentSong];
- document.getElementById("songTitle").textContent=
- song.title+" — "+song.artist;
- document.getElementById("lyrics").textContent=
- song.slides[currentSlide];
- document.getElementById("counter").textContent=
- "Slide "+(currentSlide+1)+" de "+song.slides.length;
-}
-
-function next(){
- if(currentSlide<songs[currentSong].slides.length-1){
-  currentSlide++;
-  showSlide();
- }
-}
-
-function previous(){
- if(currentSlide>0){
-  currentSlide--;
-  showSlide();
- }
-}
-
-function closePresentation(){
- document.getElementById("presentation").style.display="none";
- document.getElementById("menu").style.display="block";
-}
-
-function fullscreen(){
- const area=document.getElementById("presentation");
- if(!document.fullscreenElement){
-  area.requestFullscreen?.();
- }else{
-  document.exitFullscreen?.();
- }
-}
 </script>
+
 </body>
 </html>
