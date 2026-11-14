@@ -1,9 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Banda Kadosh | Louvorzão</title>
+
+<title>Banda Kadosh - Louvorzão</title>
 
 <style>
 * {
@@ -17,73 +19,73 @@ body {
   color: white;
   font-family: Arial, sans-serif;
   text-align: center;
-  padding: 30px 16px;
+  padding: 25px 15px;
 }
 
 header {
-  margin: 35px 0 30px;
+  margin: 35px 0 25px;
 }
 
 .banda {
-  font-size: 43px;
+  font-size: 42px;
   font-weight: 900;
   letter-spacing: 5px;
 }
 
 .kadosh {
-  color: #ed1717;
-  font-size: 55px;
+  font-size: 58px;
   font-weight: 900;
+  color: #ed1717;
   letter-spacing: 4px;
   text-shadow: 0 0 12px red, 0 0 25px #a00000;
 }
 
 .louvor {
-  color: red;
-  font-size: 21px;
-  font-weight: bold;
+  color: #ff1717;
+  font-size: 20px;
   letter-spacing: 8px;
+  font-weight: bold;
   margin-top: 8px;
 }
 
 .versiculo {
   color: #ccc;
   font-size: 13px;
-  margin: 25px auto 35px;
-  max-width: 350px;
   line-height: 1.7;
+  margin: 25px auto 35px;
 }
 
 h2 {
-  color: #e51b23;
-  margin-bottom: 22px;
-  font-size: 23px;
+  color: #ed1717;
+  font-size: 22px;
+  margin-bottom: 25px;
 }
 
-.musicas {
-  max-width: 520px;
+.container {
+  max-width: 550px;
   margin: auto;
 }
 
 .musica {
-  margin-bottom: 13px;
+  margin-bottom: 18px;
 }
 
 .musica button {
   width: 100%;
   padding: 17px 12px;
-  border: 1px solid #ff3030;
+  background: linear-gradient(90deg, #a90000, #ed1717);
+  border: 1px solid #ff3333;
   border-radius: 12px;
-  background: linear-gradient(90deg, #a80000, #ed1717);
   color: white;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: bold;
   cursor: pointer;
-  transition: .2s;
+  transition: .3s;
 }
 
-.musica button:active {
-  transform: scale(.97);
+.musica button:hover {
+  box-shadow: 0 0 18px red;
+  transform: scale(1.02);
 }
 
 .artista {
@@ -97,12 +99,11 @@ h2 {
   background: #111;
   border: 1px solid #333;
   border-radius: 12px;
-  padding: 22px 15px;
-  margin-top: 10px;
+  margin-top: 12px;
+  padding: 22px;
   text-align: left;
   line-height: 1.9;
   white-space: pre-line;
-  color: #eee;
 }
 
 .letra.ativa {
@@ -110,15 +111,28 @@ h2 {
 }
 
 .letra h3 {
-  color: #ff3030;
+  color: #ff2525;
   text-align: center;
   margin-bottom: 15px;
 }
 
+.letra textarea {
+  width: 100%;
+  min-height: 180px;
+  background: #080808;
+  color: white;
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 12px;
+  resize: vertical;
+  font-family: Arial;
+  font-size: 14px;
+}
+
 footer {
-  margin-top: 50px;
   color: #777;
   font-size: 12px;
+  margin-top: 50px;
 }
 </style>
 </head>
@@ -139,68 +153,65 @@ footer {
 
 <h2>♪ NOSSOS LOUVORES ♪</h2>
 
-<div class="musicas">
+<div class="container">
 
   <div class="musica">
-    <button onclick="abrir(0)">01 - DE VOLTA</button>
-    <div class="artista">Banda Kadosh</div>
-    <div class="letra">
-      <h3>De Volta</h3>
-      [COLE A LETRA AUTORIZADA AQUI]
-    </div>
-  </div>
-
-  <div class="musica">
-    <button onclick="abrir(1)">02 - HÁ UM BÁLSAMO EM GILEADE</button>
-    <div class="artista">Banda Kadosh</div>
-    <div class="letra">
-      <h3>Há um Bálsamo em Gileade</h3>
-      [COLE A LETRA AUTORIZADA AQUI]
-    </div>
-  </div>
-
-  <div class="musica">
-    <button onclick="abrir(2)">03 - COMO ANTIGAMENTE</button>
-    <div class="artista">Banda Kadosh</div>
-    <div class="letra">
-      <h3>Como Antigamente</h3>
-      [COLE A LETRA AUTORIZADA AQUI]
-    </div>
-  </div>
-
-  <div class="musica">
-    <button onclick="abrir(3)">04 - TÍTULO A CONFIRMAR</button>
-    <div class="artista">Banda Kadosh</div>
-    <div class="letra">
-      <h3>Título a confirmar</h3>
-      [COLE A LETRA AUTORIZADA AQUI]
-    </div>
-  </div>
-
-  <div class="musica">
-    <button onclick="abrir(4)">05 - O SENHOR, NÃO OS ÍDOLOS</button>
-    <div class="artista">Thamires Garcia</div>
+    <button onclick="abrir(0)">
+      01 - O SENHOR, NÃO OS ÍDOLOS
+    </button>
+    <div class="artista">Thamires García</div>
     <div class="letra">
       <h3>O Senhor, Não os Ídolos</h3>
-      [COLE A LETRA AUTORIZADA AQUI]
+      <textarea placeholder="Cole aqui a letra autorizada da música..."></textarea>
     </div>
   </div>
 
   <div class="musica">
-    <button onclick="abrir(5)">06 - EU ME LEMBRO</button>
+    <button onclick="abrir(1)">
+      02 - MEDLEY
+    </button>
+    <div class="artista">
+      De Volta + Jesus Meu Primeiro Amor +
+      Voltemos ao Início + Bálsamo de Gileade
+    </div>
+    <div class="letra">
+      <h3>Medley</h3>
+      <textarea placeholder="Cole aqui as letras autorizadas do medley..."></textarea>
+    </div>
+  </div>
+
+  <div class="musica">
+    <button onclick="abrir(2)">
+      03 - EU ME LEMBRO
+    </button>
     <div class="artista">Morada</div>
     <div class="letra">
       <h3>Eu Me Lembro</h3>
-      [COLE A LETRA AUTORIZADA AQUI]
+      <textarea placeholder="Cole aqui a letra autorizada da música..."></textarea>
     </div>
   </div>
 
   <div class="musica">
-    <button onclick="abrir(6)">07 - HÁ UM VINHO NOVO</button>
+    <button onclick="abrir(3)">
+      04 - HÁ UM VINHO NOVO
+    </button>
     <div class="artista">Ministério Zoe</div>
     <div class="letra">
       <h3>Há Um Vinho Novo</h3>
-      [COLE A LETRA AUTORIZADA AQUI]
+      <textarea placeholder="Cole aqui a letra autorizada da música..."></textarea>
+    </div>
+  </div>
+
+  <div class="musica">
+    <button onclick="abrir(4)">
+      05 - MEDLEY
+    </button>
+    <div class="artista">
+      Como Antigamente + Ventos do Avivamento
+    </div>
+    <div class="letra">
+      <h3>Medley</h3>
+      <textarea placeholder="Cole aqui as letras autorizadas do medley..."></textarea>
     </div>
   </div>
 
@@ -213,13 +224,13 @@ footer {
 
 <script>
 function abrir(numero) {
-  const letras = document.querySelectorAll('.letra');
+  const letras = document.querySelectorAll(".letra");
 
   letras.forEach((letra, indice) => {
     if (indice === numero) {
-      letra.classList.toggle('ativa');
+      letra.classList.toggle("ativa");
     } else {
-      letra.classList.remove('ativa');
+      letra.classList.remove("ativa");
     }
   });
 }
