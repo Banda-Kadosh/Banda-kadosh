@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Banda Kadosh | Louvorzão</title>
+<title>Banda Kadosh</title>
 
 <style>
 * {
@@ -13,379 +14,180 @@
 }
 
 body {
-  background: #050505;
+  background: #0b090a;
   color: white;
   font-family: Arial, sans-serif;
-  min-height: 100vh;
 }
 
 header {
   text-align: center;
-  padding: 45px 15px 25px;
+  padding: 65px 15px 35px;
 }
 
-.banda {
-  font-size: 35px;
+.logo {
+  font-size: clamp(45px, 11vw, 78px);
   font-weight: 900;
-  letter-spacing: 6px;
+  letter-spacing: 8px;
 }
 
-.kadosh {
-  color: #ed1717;
-  font-size: 57px;
-  font-weight: 900;
-  letter-spacing: 4px;
-  text-shadow: 0 0 15px red;
+.logo span {
+  display: block;
+  color: #e32938;
 }
 
-.louvor {
-  color: #ff4444;
-  letter-spacing: 7px;
-  font-weight: bold;
-  margin-top: 8px;
+.subtitle {
+  color: #e32938;
+  letter-spacing: 5px;
+  margin-top: 15px;
 }
 
-.versiculo {
+.verse {
   color: #aaa;
-  font-size: 13px;
-  text-align: center;
-  line-height: 1.8;
-  margin: 15px auto 35px;
+  margin-top: 20px;
+  line-height: 1.7;
 }
 
-h2 {
-  text-align: center;
-  color: #ff3333;
-  margin-bottom: 25px;
-}
-
-.lista {
+main {
+  max-width: 700px;
   width: 90%;
-  max-width: 650px;
   margin: auto;
 }
 
-.musica {
-  margin-bottom: 18px;
+h2 {
+  color: #e32938;
   text-align: center;
+  margin: 30px 0;
+  letter-spacing: 3px;
 }
 
-.musica button {
+.song {
+  background: #191315;
+  border: 1px solid #462027;
+  border-radius: 15px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.song button {
   width: 100%;
-  padding: 20px 12px;
-  background: linear-gradient(90deg, #a90000, #ed2222);
-  border: 2px solid #ff4444;
-  border-radius: 30px;
+  padding: 22px;
+  background: transparent;
+  border: none;
   color: white;
+  text-align: left;
+  font-size: 16px;
   font-weight: bold;
-  font-size: 15px;
   cursor: pointer;
 }
 
-.artista {
-  color: #bbb;
-  font-size: 12px;
-  margin-top: 7px;
+.artist {
+  display: block;
+  color: #d34a57;
+  font-size: 13px;
+  margin-top: 8px;
 }
 
-/* APRESENTAÇÃO */
-
-#apresentacao {
+.details {
   display: none;
-  min-height: 100vh;
-  background: #000;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 25px;
+  padding: 0 22px 22px;
+  color: #ccc;
+  line-height: 1.7;
 }
 
-.topo {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.details.open {
+  display: block;
 }
 
-.topo button, .controles button {
-  background: #b50000;
+.details a {
+  display: inline-block;
+  background: #b91f30;
   color: white;
-  border: 1px solid #ff4444;
-  border-radius: 10px;
   padding: 12px 18px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.titulo-slide {
-  text-align: center;
-  color: #ff3333;
-  font-size: 19px;
-  letter-spacing: 2px;
-  margin-top: 20px;
-}
-
-.conteudo {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 30px 10px;
-}
-
-.conteudo h1 {
-  color: white;
-  font-size: clamp(25px, 5vw, 48px);
-  line-height: 1.6;
-  max-width: 1100px;
-}
-
-.indicador {
-  color: #888;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.controles {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  padding-bottom: 15px;
-}
-
-.controles button {
-  min-width: 120px;
+  border-radius: 30px;
+  text-decoration: none;
+  margin-top: 12px;
 }
 
 footer {
   text-align: center;
-  color: #777;
-  padding: 35px;
-  font-size: 12px;
+  padding: 40px 15px;
+  color: #888;
 }
 
-@media(max-width: 500px) {
-  .kadosh { font-size: 46px; }
-  .controles button { min-width: 0; }
-}
 </style>
 </head>
 
 <body>
 
-<!-- PÁGINA INICIAL -->
-
-<div id="inicio">
-
 <header>
-  <div class="banda">BANDA</div>
-  <div class="kadosh">KADOSH</div>
-  <div class="louvor">LOUVORZÃO</div>
+  <div class="logo">
+    BANDA
+    <span>KADOSH</span>
+  </div>
+
+  <div class="subtitle">🔥 LOUVORZÃO 🔥</div>
+
+  <p class="verse">
+    Vinde, voltemos ao Senhor.<br>
+    Oséias 6:1-2
+  </p>
 </header>
 
-<div class="versiculo">
-  "Cantai ao Senhor um cântico novo,
-  cantai ao Senhor, todas as terras."
-  <br>Salmos 96:1
-</div>
+<main>
+<h2>NOSSOS LOUVORES</h2>
 
-<h2>♪ NOSSOS LOUVORES ♪</h2>
+<div id="songs"></div>
+</main>
 
-<div class="lista">
-
-  <div class="musica">
-    <button onclick="iniciar(0)">
-      ♪ O SENHOR, NÃO OS ÍDOLOS
-    </button>
-    <div class="artista">Thamires García</div>
-  </div>
-
-  <div class="musica">
-    <button onclick="iniciar(1)">
-      ♪ MEDLEY: DE VOLTA
-    </button>
-    <div class="artista">
-      Jesus Meu Primeiro Amor + Voltemos ao Início +
-      Bálsamo de Gileade
-    </div>
-  </div>
-
-  <div class="musica">
-    <button onclick="iniciar(2)">
-      ♪ EU ME LEMBRO
-    </button>
-    <div class="artista">Morada</div>
-  </div>
-
-  <div class="musica">
-    <button onclick="iniciar(3)">
-      ♪ HÁ UM VINHO NOVO
-    </button>
-    <div class="artista">Ministério Zoe</div>
-  </div>
-
-  <div class="musica">
-    <button onclick="iniciar(4)">
-      ♪ COMO ANTIGAMENTE
-    </button>
-    <div class="artista">Ventos do Avivamento</div>
-  </div>
-
-</div>
-
-<footer>BANDA KADOSH © 2026</footer>
-</div>
-
-<!-- TELA DE APRESENTAÇÃO -->
-
-<div id="apresentacao">
-
-  <div class="topo">
-    <button onclick="voltar()">← VOLTAR</button>
-    <button onclick="telaCheia()">⛶ TELA CHEIA</button>
-  </div>
-
-  <div class="titulo-slide" id="titulo"></div>
-
-  <div class="conteudo">
-    <h1 id="texto"></h1>
-  </div>
-
-  <div class="indicador" id="contador"></div>
-
-  <div class="controles">
-    <button onclick="anterior()">❮ ANTERIOR</button>
-    <button onclick="proximo()">PRÓXIMO ❯</button>
-  </div>
-
-</div>
+<footer>
+  BANDA KADOSH<br>
+  Uma geração que adora a Deus.<br>
+  © 2026
+</footer>
 
 <script>
-
-// COLOQUE OS TRECHOS AUTORIZADOS DAS LETRAS
-// Cada item representa um slide da apresentação.
-
 const musicas = [
-  {
-    titulo: "O SENHOR, NÃO OS ÍDOLOS",
-    slides: [
-      "Adicione aqui o primeiro trecho da música.",
-      "Adicione aqui o segundo trecho da música.",
-      "Adicione aqui o terceiro trecho da música."
-    ]
-  },
-
-  {
-    titulo: "MEDLEY: DE VOLTA",
-    slides: [
-      "DE VOLTA — primeiro trecho",
-      "DE VOLTA — próximo trecho",
-      "JESUS MEU PRIMEIRO AMOR",
-      "VOLTEMOS AO INÍCIO",
-      "BÁLSAMO DE GILEADE"
-    ]
-  },
-
-  {
-    titulo: "EU ME LEMBRO — MORADA",
-    slides: [
-      "Adicione aqui o primeiro trecho da música.",
-      "Adicione aqui o segundo trecho da música.",
-      "Adicione aqui o terceiro trecho da música."
-    ]
-  },
-
-  {
-    titulo: "HÁ UM VINHO NOVO — MINISTÉRIO ZOE",
-    slides: [
-      "Adicione aqui o primeiro trecho da música.",
-      "Adicione aqui o segundo trecho da música.",
-      "Adicione aqui o terceiro trecho da música."
-    ]
-  },
-
-  {
-    titulo: "COMO ANTIGAMENTE + VENTOS DO AVIVAMENTO",
-    slides: [
-      "COMO ANTIGAMENTE — primeiro trecho",
-      "COMO ANTIGAMENTE — próximo trecho",
-      "VENTOS DO AVIVAMENTO",
-      "VENTOS DO AVIVAMENTO — próximo trecho"
-    ]
-  }
+  ["EU ME LEMBRO", "Morada"],
+  ["DE VOLTA", "Louvor"],
+  ["COMO ANTIGAMENTE", "Louvor"],
+  ["O SENHOR, NÃO OS ÍDOLOS", "Thamires Garcia"],
+  ["HÁ UM VINHO NOVO", "Ministério Zoe"]
 ];
 
-let musicaAtual = 0;
-let slideAtual = 0;
+const lista = document.getElementById("songs");
 
-function iniciar(numero) {
-  musicaAtual = numero;
-  slideAtual = 0;
+musicas.forEach((musica, i) => {
+  const card = document.createElement("section");
+  card.className = "song";
 
-  document.getElementById("inicio").style.display = "none";
-  document.getElementById("apresentacao").style.display = "flex";
+  const botao = document.createElement("button");
+  botao.innerHTML = `
+    ♫ ${musica[0]}
+    <span class="artist">${musica[1]}</span>
+  `;
 
-  mostrarSlide();
-}
+  const detalhes = document.createElement("div");
+  detalhes.className = "details";
 
-function mostrarSlide() {
-  const musica = musicas[musicaAtual];
+  const texto = document.createElement("p");
+  texto.textContent = "Louvor " + (i + 1) + " da Banda Kadosh.";
 
-  document.getElementById("titulo").textContent = musica.titulo;
+  const link = document.createElement("a");
+  link.href = "https://www.youtube.com/results?search_query=" +
+    encodeURIComponent(musica[0] + " " + musica[1]);
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.textContent = "OUVIR NO YOUTUBE";
 
-  document.getElementById("texto").textContent =
-    musica.slides[slideAtual];
+  detalhes.append(texto, link);
 
-  document.getElementById("contador").textContent =
-    "SLIDE " + (slideAtual + 1) +
-    " DE " + musica.slides.length;
-}
+  botao.addEventListener("click", () => {
+    detalhes.classList.toggle("open");
+  });
 
-function proximo() {
-  if (slideAtual < musicas[musicaAtual].slides.length - 1) {
-    slideAtual++;
-    mostrarSlide();
-  }
-}
-
-function anterior() {
-  if (slideAtual > 0) {
-    slideAtual--;
-    mostrarSlide();
-  }
-}
-
-function voltar() {
-  document.getElementById("apresentacao").style.display = "none";
-  document.getElementById("inicio").style.display = "block";
-}
-
-function telaCheia() {
-  if (!document.fullscreenElement) {
-    document.documentElement.requestFullscreen?.();
-  } else {
-    document.exitFullscreen?.();
-  }
-}
-
-// TECLAS DO COMPUTADOR
-
-document.addEventListener("keydown", function(event) {
-  if (document.getElementById("apresentacao").style.display !== "flex") return;
-
-  if (event.key === "ArrowRight" || event.key === " ") {
-    proximo();
-  }
-
-  if (event.key === "ArrowLeft") {
-    anterior();
-  }
-
-  if (event.key === "Escape") {
-    voltar();
-  }
+  card.append(botao, detalhes);
+  lista.append(card);
 });
-
 </script>
 
 </body>
