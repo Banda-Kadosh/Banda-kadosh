@@ -1,245 +1,162 @@
 
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Banda Kadosh</title>
-
 <style>
-* { box-sizing:border-box; }
-
-body {
-  margin:0;
-  background:#090909;
-  color:white;
-  font-family:Arial,sans-serif;
-  text-align:center;
+*{box-sizing:border-box}
+body{
+ margin:0;background:#090909;color:white;
+ font-family:Arial;text-align:center
 }
-
-header {
-  padding:35px 15px;
+header{padding:35px 10px}
+.logo{font-size:48px;font-weight:900;letter-spacing:5px}
+.logo span{color:#e32938}
+header p{color:#e32938;letter-spacing:5px}
+#menu{max-width:650px;margin:20px auto;padding:15px}
+.song{
+ display:block;width:100%;padding:20px;margin:12px 0;
+ background:#1b1113;color:white;border:1px solid #a51e2c;
+ border-radius:12px;font-weight:bold;font-size:16px
 }
-
-.logo {
-  font-size:48px;
-  font-weight:900;
-  letter-spacing:5px;
+#presentation{display:none;padding:15px}
+.slide{
+ max-width:900px;min-height:350px;margin:20px auto;
+ padding:30px 15px;background:#171113;
+ border:1px solid #a51e2c;border-radius:15px;
+ display:flex;flex-direction:column;justify-content:center
 }
-
-.logo span { color:#e32938; }
-
-header p {
-  color:#e32938;
-  letter-spacing:4px;
+#songTitle{color:#e32938;font-size:22px}
+#lyrics{
+ white-space:pre-line;font-size:clamp(22px,4vw,36px);
+ line-height:1.6;font-weight:bold
 }
-
-#menu {
-  max-width:600px;
-  margin:20px auto;
-  padding:15px;
+.controls{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+button{cursor:pointer}
+.controls button{
+ padding:15px 23px;background:#b82030;color:white;
+ border:0;border-radius:30px;font-weight:bold
 }
-
-.song {
-  display:block;
-  width:100%;
-  padding:18px;
-  margin:12px 0;
-  border:1px solid #a51e2c;
-  border-radius:12px;
-  background:#1b1113;
-  color:white;
-  font-size:16px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-.song:hover { background:#a51e2c; }
-
-#presentation {
-  display:none;
-  padding:20px;
-}
-
-.slide {
-  max-width:850px;
-  min-height:330px;
-  margin:20px auto;
-  padding:35px 15px;
-  background:#171113;
-  border:1px solid #9e2634;
-  border-radius:18px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-}
-
-#songTitle {
-  color:#e32938;
-  font-size:24px;
-}
-
-#lyrics {
-  font-size:clamp(23px,4vw,36px);
-  line-height:1.7;
-  white-space:pre-line;
-  font-weight:bold;
-}
-
-.controls {
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:12px;
-  margin:20px;
-}
-
-.controls button {
-  padding:14px 25px;
-  background:#b82030;
-  color:white;
-  border:0;
-  border-radius:30px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-#counter {
-  color:#aaa;
-  margin:15px;
-}
-
-#back {
-  background:#333;
-}
-
-footer {
-  padding:35px;
-  color:#777;
-}
+#counter{color:#aaa;padding:15px}
+footer{padding:35px;color:#888}
 </style>
 </head>
-
 <body>
 
 <header>
-  <div class="logo">BANDA <span>KADOSH</span></div>
-  <p>🔥 LOUVORZÃO 🔥</p>
-  <small>Oséias 6:1-2</small>
+ <div class="logo">BANDA <span>KADOSH</span></div>
+ <p>🔥 LOUVORZÃO 🔥</p>
+ <small>Oséias 6:1-2</small>
 </header>
 
 <section id="menu">
-  <h2>ESCOLHA O LOUVOR</h2>
-  <div id="songList"></div>
+ <h2>ESCOLHA O LOUVOR</h2>
+ <div id="songList"></div>
 </section>
 
 <section id="presentation">
-  <div class="slide">
-    <h2 id="songTitle"></h2>
-    <p id="lyrics"></p>
-  </div>
-
-  <div id="counter"></div>
-
-  <div class="controls">
-    <button id="back" onclick="previous()">ANTERIOR</button>
-    <button onclick="next()">PRÓXIMO →</button>
-  </div>
-
-  <div class="controls">
-    <button onclick="closePresentation()">VOLTAR À LISTA</button>
-  </div>
+ <div class="slide">
+  <h2 id="songTitle"></h2>
+  <p id="lyrics"></p>
+ </div>
+ <div id="counter"></div>
+ <div class="controls">
+  <button onclick="previous()">← ANTERIOR</button>
+  <button onclick="next()">PRÓXIMO →</button>
+  <button onclick="fullscreen()">TELA CHEIA</button>
+ </div>
+ <div class="controls" style="margin-top:15px">
+  <button onclick="closePresentation()">VOLTAR À LISTA</button>
+ </div>
 </section>
 
-<footer>
-  BANDA KADOSH<br>
-  Uma geração que adora a Deus ❤️
-</footer>
+<footer>BANDA KADOSH ❤️<br>Uma geração que adora a Deus.</footer>
 
 <script>
-const songs = [
-  {
-    title:"EU ME LEMBRO",
-    artist:"MORADA",
-    slides:["Cole aqui a primeira parte autorizada da letra."]
-  },
-  {
-    title:"DE VOLTA",
-    artist:"BANDA KADOSH",
-    slides:["Cole aqui a primeira parte autorizada da letra."]
-  },
-  {
-    title:"COMO ANTIGAMENTE",
-    artist:"BANDA KADOSH",
-    slides:["Cole aqui a primeira parte autorizada da letra."]
-  },
-  {
-    title:"O SENHOR, NÃO OS ÍDOLOS",
-    artist:"THAMIRES GARCIA",
-    slides:["Cole aqui a primeira parte autorizada da letra."]
-  },
-  {
-    title:"HÁ UM VINHO NOVO",
-    artist:"MINISTÉRIO ZOE",
-    slides:["Cole aqui a primeira parte autorizada da letra."]
-  }
+const songs=[
+ {title:"EU ME LEMBRO",artist:"MORADA",slides:[
+  "Letra autorizada: primeira parte",
+  "Letra autorizada: segunda parte"
+ ]},
+ {title:"DE VOLTA",artist:"LOUVOR",slides:[
+  "Letra autorizada: primeira parte",
+  "Letra autorizada: segunda parte"
+ ]},
+ {title:"COMO ANTIGAMENTE",artist:"LOUVOR",slides:[
+  "Letra autorizada: primeira parte",
+  "Letra autorizada: segunda parte"
+ ]},
+ {title:"O SENHOR, NÃO OS ÍDOLOS",artist:"THAMIRES GARCIA",slides:[
+  "Letra autorizada: primeira parte",
+  "Letra autorizada: segunda parte"
+ ]},
+ {title:"HÁ UM VINHO NOVO",artist:"MINISTÉRIO ZOE",slides:[
+  "Letra autorizada: primeira parte",
+  "Letra autorizada: segunda parte"
+ ]}
 ];
 
-let currentSong = 0;
-let currentSlide = 0;
+let currentSong=0;
+let currentSlide=0;
 
-const songList = document.getElementById("songList");
+const list=document.getElementById("songList");
 
-songs.forEach((song,index) => {
-  const button = document.createElement("button");
-  button.className = "song";
-  button.textContent = song.title + " — " + song.artist;
-  button.onclick = () => openSong(index);
-  songList.appendChild(button);
+songs.forEach((song,index)=>{
+ const button=document.createElement("button");
+ button.className="song";
+ button.textContent=song.title+" — "+song.artist;
+ button.onclick=()=>openSong(index);
+ list.appendChild(button);
 });
 
-function openSong(index) {
-  currentSong = index;
-  currentSlide = 0;
+function openSong(index){
+ currentSong=index;
+ currentSlide=0;
+ document.getElementById("menu").style.display="none";
+ document.getElementById("presentation").style.display="block";
+ showSlide();
+}
 
-  document.getElementById("menu").style.display = "none";
-  document.getElementById("presentation").style.display = "block";
+function showSlide(){
+ const song=songs[currentSong];
+ document.getElementById("songTitle").textContent=
+ song.title+" — "+song.artist;
+ document.getElementById("lyrics").textContent=
+ song.slides[currentSlide];
+ document.getElementById("counter").textContent=
+ "Slide "+(currentSlide+1)+" de "+song.slides.length;
+}
 
+function next(){
+ if(currentSlide<songs[currentSong].slides.length-1){
+  currentSlide++;
   showSlide();
+ }
 }
 
-function showSlide() {
-  const song = songs[currentSong];
-
-  document.getElementById("songTitle").textContent =
-    song.title + " — " + song.artist;
-
-  document.getElementById("lyrics").textContent =
-    song.slides[currentSlide];
-
-  document.getElementById("counter").textContent =
-    "Slide " + (currentSlide + 1) + " de " + song.slides.length;
+function previous(){
+ if(currentSlide>0){
+  currentSlide--;
+  showSlide();
+ }
 }
 
-function next() {
-  if(currentSlide < songs[currentSong].slides.length - 1) {
-    currentSlide++;
-    showSlide();
-  }
+function closePresentation(){
+ document.getElementById("presentation").style.display="none";
+ document.getElementById("menu").style.display="block";
 }
 
-function previous() {
-  if(currentSlide > 0) {
-    currentSlide--;
-    showSlide();
-  }
-}
-
-function closePresentation() {
-  document.getElementById("presentation").style.display = "none";
-  document.getElementById("menu").style.display = "block";
+function fullscreen(){
+ const area=document.getElementById("presentation");
+ if(!document.fullscreenElement){
+  area.requestFullscreen?.();
+ }else{
+  document.exitFullscreen?.();
+ }
 }
 </script>
-
 </body>
 </html>
